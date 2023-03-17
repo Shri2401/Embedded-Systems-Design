@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1666964080 source:d:\codeblocks\supp\func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	"func.h"
+
+1666964080 d:\codeblocks\supp\func.h
+	<mcs51/8051.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<at89c51ed2.h>
+	<string.h>
+
+1666932085 source:d:\codeblocks\supp\main.c
+	<mcs51/8051.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<at89c51ed2.h>
+	<string.h>
+	"func.h"
+
+1666992953 source:c:\users\itssh\desktop\esd_lab_3\8051_supplement\func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	"func.h"
+
+1666964242 c:\users\itssh\desktop\esd_lab_3\8051_supplement\func.h
+	<mcs51/8051.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<at89c51ed2.h>
+	<string.h>
+
+1666989430 source:c:\users\itssh\desktop\esd_lab_3\8051_supplement\main.c
+	<mcs51/8051.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<at89c51ed2.h>
+	<string.h>
+	"func.h"
+

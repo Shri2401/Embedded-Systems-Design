@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1666994042 source:d:\codeblocks\ui\heap.c
+
+1667104973 source:d:\codeblocks\ui\buffer_inputs.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"buffer_inputs.h"
+
+1667104973 d:\codeblocks\ui\buffer_inputs.h
+	<stdbool.h>
+
+1666994572 source:d:\codeblocks\ui\characters.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"characters.h"
+	"buffer_inputs.h"
+
+1666502906 d:\codeblocks\ui\characters.h
+	<stdbool.h>
+
+1667104973 source:d:\codeblocks\ui\main.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"characters.h"
+	"buffer_inputs.h"
+
+1666404773 source:d:\codeblocks\ui\debug.c
+	"debug.h"
+	<stdint.h>
+
+1666405108 d:\codeblocks\ui\debug.h
+

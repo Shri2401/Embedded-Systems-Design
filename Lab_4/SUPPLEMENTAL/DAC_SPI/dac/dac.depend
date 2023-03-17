@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1668883285 source:d:\codeblocks\dac\func.c
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<mcs51/8051.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+	"serial.h"
+
+1668890522 source:d:\codeblocks\dac\main.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+

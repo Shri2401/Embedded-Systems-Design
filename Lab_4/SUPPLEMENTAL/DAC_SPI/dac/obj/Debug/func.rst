@@ -1,0 +1,1699 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.2.0 #13081 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module func
+                                      6 	.optsdcc -mmcs51 --model-large
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _get_number2
+                                     12 	.globl _get_number1
+                                     13 	.globl _getstr
+                                     14 	.globl _putstr
+                                     15 	.globl _putchar
+                                     16 	.globl _Init_Serial
+                                     17 	.globl _printf_tiny
+                                     18 	.globl _CY
+                                     19 	.globl _AC
+                                     20 	.globl _F0
+                                     21 	.globl _RS1
+                                     22 	.globl _RS0
+                                     23 	.globl _OV
+                                     24 	.globl _F1
+                                     25 	.globl _P
+                                     26 	.globl _PS
+                                     27 	.globl _PT1
+                                     28 	.globl _PX1
+                                     29 	.globl _PT0
+                                     30 	.globl _PX0
+                                     31 	.globl _RD
+                                     32 	.globl _WR
+                                     33 	.globl _T1
+                                     34 	.globl _T0
+                                     35 	.globl _INT1
+                                     36 	.globl _INT0
+                                     37 	.globl _TXD
+                                     38 	.globl _RXD
+                                     39 	.globl _P3_7
+                                     40 	.globl _P3_6
+                                     41 	.globl _P3_5
+                                     42 	.globl _P3_4
+                                     43 	.globl _P3_3
+                                     44 	.globl _P3_2
+                                     45 	.globl _P3_1
+                                     46 	.globl _P3_0
+                                     47 	.globl _EA
+                                     48 	.globl _ES
+                                     49 	.globl _ET1
+                                     50 	.globl _EX1
+                                     51 	.globl _ET0
+                                     52 	.globl _EX0
+                                     53 	.globl _P2_7
+                                     54 	.globl _P2_6
+                                     55 	.globl _P2_5
+                                     56 	.globl _P2_4
+                                     57 	.globl _P2_3
+                                     58 	.globl _P2_2
+                                     59 	.globl _P2_1
+                                     60 	.globl _P2_0
+                                     61 	.globl _SM0
+                                     62 	.globl _SM1
+                                     63 	.globl _SM2
+                                     64 	.globl _REN
+                                     65 	.globl _TB8
+                                     66 	.globl _RB8
+                                     67 	.globl _TI
+                                     68 	.globl _RI
+                                     69 	.globl _P1_7
+                                     70 	.globl _P1_6
+                                     71 	.globl _P1_5
+                                     72 	.globl _P1_4
+                                     73 	.globl _P1_3
+                                     74 	.globl _P1_2
+                                     75 	.globl _P1_1
+                                     76 	.globl _P1_0
+                                     77 	.globl _TF1
+                                     78 	.globl _TR1
+                                     79 	.globl _TF0
+                                     80 	.globl _TR0
+                                     81 	.globl _IE1
+                                     82 	.globl _IT1
+                                     83 	.globl _IE0
+                                     84 	.globl _IT0
+                                     85 	.globl _P0_7
+                                     86 	.globl _P0_6
+                                     87 	.globl _P0_5
+                                     88 	.globl _P0_4
+                                     89 	.globl _P0_3
+                                     90 	.globl _P0_2
+                                     91 	.globl _P0_1
+                                     92 	.globl _P0_0
+                                     93 	.globl _TXD0
+                                     94 	.globl _RXD0
+                                     95 	.globl _BREG_F7
+                                     96 	.globl _BREG_F6
+                                     97 	.globl _BREG_F5
+                                     98 	.globl _BREG_F4
+                                     99 	.globl _BREG_F3
+                                    100 	.globl _BREG_F2
+                                    101 	.globl _BREG_F1
+                                    102 	.globl _BREG_F0
+                                    103 	.globl _P5_7
+                                    104 	.globl _P5_6
+                                    105 	.globl _P5_5
+                                    106 	.globl _P5_4
+                                    107 	.globl _P5_3
+                                    108 	.globl _P5_2
+                                    109 	.globl _P5_1
+                                    110 	.globl _P5_0
+                                    111 	.globl _P4_7
+                                    112 	.globl _P4_6
+                                    113 	.globl _P4_5
+                                    114 	.globl _P4_4
+                                    115 	.globl _P4_3
+                                    116 	.globl _P4_2
+                                    117 	.globl _P4_1
+                                    118 	.globl _P4_0
+                                    119 	.globl _PX0L
+                                    120 	.globl _PT0L
+                                    121 	.globl _PX1L
+                                    122 	.globl _PT1L
+                                    123 	.globl _PSL
+                                    124 	.globl _PT2L
+                                    125 	.globl _PPCL
+                                    126 	.globl _EC
+                                    127 	.globl _CCF0
+                                    128 	.globl _CCF1
+                                    129 	.globl _CCF2
+                                    130 	.globl _CCF3
+                                    131 	.globl _CCF4
+                                    132 	.globl _CR
+                                    133 	.globl _CF
+                                    134 	.globl _TF2
+                                    135 	.globl _EXF2
+                                    136 	.globl _RCLK
+                                    137 	.globl _TCLK
+                                    138 	.globl _EXEN2
+                                    139 	.globl _TR2
+                                    140 	.globl _C_T2
+                                    141 	.globl _CP_RL2
+                                    142 	.globl _T2CON_7
+                                    143 	.globl _T2CON_6
+                                    144 	.globl _T2CON_5
+                                    145 	.globl _T2CON_4
+                                    146 	.globl _T2CON_3
+                                    147 	.globl _T2CON_2
+                                    148 	.globl _T2CON_1
+                                    149 	.globl _T2CON_0
+                                    150 	.globl _PT2
+                                    151 	.globl _ET2
+                                    152 	.globl _B
+                                    153 	.globl _ACC
+                                    154 	.globl _PSW
+                                    155 	.globl _IP
+                                    156 	.globl _P3
+                                    157 	.globl _IE
+                                    158 	.globl _P2
+                                    159 	.globl _SBUF
+                                    160 	.globl _SCON
+                                    161 	.globl _P1
+                                    162 	.globl _TH1
+                                    163 	.globl _TH0
+                                    164 	.globl _TL1
+                                    165 	.globl _TL0
+                                    166 	.globl _TMOD
+                                    167 	.globl _TCON
+                                    168 	.globl _PCON
+                                    169 	.globl _DPH
+                                    170 	.globl _DPL
+                                    171 	.globl _SP
+                                    172 	.globl _P0
+                                    173 	.globl _SBUF0
+                                    174 	.globl _DP0L
+                                    175 	.globl _DP0H
+                                    176 	.globl _EECON
+                                    177 	.globl _KBF
+                                    178 	.globl _KBE
+                                    179 	.globl _KBLS
+                                    180 	.globl _BRL
+                                    181 	.globl _BDRCON
+                                    182 	.globl _T2MOD
+                                    183 	.globl _SPDAT
+                                    184 	.globl _SPSTA
+                                    185 	.globl _SPCON
+                                    186 	.globl _SADEN
+                                    187 	.globl _SADDR
+                                    188 	.globl _WDTPRG
+                                    189 	.globl _WDTRST
+                                    190 	.globl _P5
+                                    191 	.globl _P4
+                                    192 	.globl _IPH1
+                                    193 	.globl _IPL1
+                                    194 	.globl _IPH0
+                                    195 	.globl _IPL0
+                                    196 	.globl _IEN1
+                                    197 	.globl _IEN0
+                                    198 	.globl _CMOD
+                                    199 	.globl _CL
+                                    200 	.globl _CH
+                                    201 	.globl _CCON
+                                    202 	.globl _CCAPM4
+                                    203 	.globl _CCAPM3
+                                    204 	.globl _CCAPM2
+                                    205 	.globl _CCAPM1
+                                    206 	.globl _CCAPM0
+                                    207 	.globl _CCAP4L
+                                    208 	.globl _CCAP3L
+                                    209 	.globl _CCAP2L
+                                    210 	.globl _CCAP1L
+                                    211 	.globl _CCAP0L
+                                    212 	.globl _CCAP4H
+                                    213 	.globl _CCAP3H
+                                    214 	.globl _CCAP2H
+                                    215 	.globl _CCAP1H
+                                    216 	.globl _CCAP0H
+                                    217 	.globl _CKCON1
+                                    218 	.globl _CKCON0
+                                    219 	.globl _CKRL
+                                    220 	.globl _AUXR1
+                                    221 	.globl _AUXR
+                                    222 	.globl _TH2
+                                    223 	.globl _TL2
+                                    224 	.globl _RCAP2H
+                                    225 	.globl _RCAP2L
+                                    226 	.globl _T2CON
+                                    227 	.globl _getchar
+                                    228 ;--------------------------------------------------------
+                                    229 ; special function registers
+                                    230 ;--------------------------------------------------------
+                                    231 	.area RSEG    (ABS,DATA)
+      000000                        232 	.org 0x0000
+                           0000C8   233 G$T2CON$0_0$0 == 0x00c8
+                           0000C8   234 _T2CON	=	0x00c8
+                           0000CA   235 G$RCAP2L$0_0$0 == 0x00ca
+                           0000CA   236 _RCAP2L	=	0x00ca
+                           0000CB   237 G$RCAP2H$0_0$0 == 0x00cb
+                           0000CB   238 _RCAP2H	=	0x00cb
+                           0000CC   239 G$TL2$0_0$0 == 0x00cc
+                           0000CC   240 _TL2	=	0x00cc
+                           0000CD   241 G$TH2$0_0$0 == 0x00cd
+                           0000CD   242 _TH2	=	0x00cd
+                           00008E   243 G$AUXR$0_0$0 == 0x008e
+                           00008E   244 _AUXR	=	0x008e
+                           0000A2   245 G$AUXR1$0_0$0 == 0x00a2
+                           0000A2   246 _AUXR1	=	0x00a2
+                           000097   247 G$CKRL$0_0$0 == 0x0097
+                           000097   248 _CKRL	=	0x0097
+                           00008F   249 G$CKCON0$0_0$0 == 0x008f
+                           00008F   250 _CKCON0	=	0x008f
+                           0000AF   251 G$CKCON1$0_0$0 == 0x00af
+                           0000AF   252 _CKCON1	=	0x00af
+                           0000FA   253 G$CCAP0H$0_0$0 == 0x00fa
+                           0000FA   254 _CCAP0H	=	0x00fa
+                           0000FB   255 G$CCAP1H$0_0$0 == 0x00fb
+                           0000FB   256 _CCAP1H	=	0x00fb
+                           0000FC   257 G$CCAP2H$0_0$0 == 0x00fc
+                           0000FC   258 _CCAP2H	=	0x00fc
+                           0000FD   259 G$CCAP3H$0_0$0 == 0x00fd
+                           0000FD   260 _CCAP3H	=	0x00fd
+                           0000FE   261 G$CCAP4H$0_0$0 == 0x00fe
+                           0000FE   262 _CCAP4H	=	0x00fe
+                           0000EA   263 G$CCAP0L$0_0$0 == 0x00ea
+                           0000EA   264 _CCAP0L	=	0x00ea
+                           0000EB   265 G$CCAP1L$0_0$0 == 0x00eb
+                           0000EB   266 _CCAP1L	=	0x00eb
+                           0000EC   267 G$CCAP2L$0_0$0 == 0x00ec
+                           0000EC   268 _CCAP2L	=	0x00ec
+                           0000ED   269 G$CCAP3L$0_0$0 == 0x00ed
+                           0000ED   270 _CCAP3L	=	0x00ed
+                           0000EE   271 G$CCAP4L$0_0$0 == 0x00ee
+                           0000EE   272 _CCAP4L	=	0x00ee
+                           0000DA   273 G$CCAPM0$0_0$0 == 0x00da
+                           0000DA   274 _CCAPM0	=	0x00da
+                           0000DB   275 G$CCAPM1$0_0$0 == 0x00db
+                           0000DB   276 _CCAPM1	=	0x00db
+                           0000DC   277 G$CCAPM2$0_0$0 == 0x00dc
+                           0000DC   278 _CCAPM2	=	0x00dc
+                           0000DD   279 G$CCAPM3$0_0$0 == 0x00dd
+                           0000DD   280 _CCAPM3	=	0x00dd
+                           0000DE   281 G$CCAPM4$0_0$0 == 0x00de
+                           0000DE   282 _CCAPM4	=	0x00de
+                           0000D8   283 G$CCON$0_0$0 == 0x00d8
+                           0000D8   284 _CCON	=	0x00d8
+                           0000F9   285 G$CH$0_0$0 == 0x00f9
+                           0000F9   286 _CH	=	0x00f9
+                           0000E9   287 G$CL$0_0$0 == 0x00e9
+                           0000E9   288 _CL	=	0x00e9
+                           0000D9   289 G$CMOD$0_0$0 == 0x00d9
+                           0000D9   290 _CMOD	=	0x00d9
+                           0000A8   291 G$IEN0$0_0$0 == 0x00a8
+                           0000A8   292 _IEN0	=	0x00a8
+                           0000B1   293 G$IEN1$0_0$0 == 0x00b1
+                           0000B1   294 _IEN1	=	0x00b1
+                           0000B8   295 G$IPL0$0_0$0 == 0x00b8
+                           0000B8   296 _IPL0	=	0x00b8
+                           0000B7   297 G$IPH0$0_0$0 == 0x00b7
+                           0000B7   298 _IPH0	=	0x00b7
+                           0000B2   299 G$IPL1$0_0$0 == 0x00b2
+                           0000B2   300 _IPL1	=	0x00b2
+                           0000B3   301 G$IPH1$0_0$0 == 0x00b3
+                           0000B3   302 _IPH1	=	0x00b3
+                           0000C0   303 G$P4$0_0$0 == 0x00c0
+                           0000C0   304 _P4	=	0x00c0
+                           0000E8   305 G$P5$0_0$0 == 0x00e8
+                           0000E8   306 _P5	=	0x00e8
+                           0000A6   307 G$WDTRST$0_0$0 == 0x00a6
+                           0000A6   308 _WDTRST	=	0x00a6
+                           0000A7   309 G$WDTPRG$0_0$0 == 0x00a7
+                           0000A7   310 _WDTPRG	=	0x00a7
+                           0000A9   311 G$SADDR$0_0$0 == 0x00a9
+                           0000A9   312 _SADDR	=	0x00a9
+                           0000B9   313 G$SADEN$0_0$0 == 0x00b9
+                           0000B9   314 _SADEN	=	0x00b9
+                           0000C3   315 G$SPCON$0_0$0 == 0x00c3
+                           0000C3   316 _SPCON	=	0x00c3
+                           0000C4   317 G$SPSTA$0_0$0 == 0x00c4
+                           0000C4   318 _SPSTA	=	0x00c4
+                           0000C5   319 G$SPDAT$0_0$0 == 0x00c5
+                           0000C5   320 _SPDAT	=	0x00c5
+                           0000C9   321 G$T2MOD$0_0$0 == 0x00c9
+                           0000C9   322 _T2MOD	=	0x00c9
+                           00009B   323 G$BDRCON$0_0$0 == 0x009b
+                           00009B   324 _BDRCON	=	0x009b
+                           00009A   325 G$BRL$0_0$0 == 0x009a
+                           00009A   326 _BRL	=	0x009a
+                           00009C   327 G$KBLS$0_0$0 == 0x009c
+                           00009C   328 _KBLS	=	0x009c
+                           00009D   329 G$KBE$0_0$0 == 0x009d
+                           00009D   330 _KBE	=	0x009d
+                           00009E   331 G$KBF$0_0$0 == 0x009e
+                           00009E   332 _KBF	=	0x009e
+                           0000D2   333 G$EECON$0_0$0 == 0x00d2
+                           0000D2   334 _EECON	=	0x00d2
+                           000083   335 G$DP0H$0_0$0 == 0x0083
+                           000083   336 _DP0H	=	0x0083
+                           000082   337 G$DP0L$0_0$0 == 0x0082
+                           000082   338 _DP0L	=	0x0082
+                           000099   339 G$SBUF0$0_0$0 == 0x0099
+                           000099   340 _SBUF0	=	0x0099
+                           000080   341 G$P0$0_0$0 == 0x0080
+                           000080   342 _P0	=	0x0080
+                           000081   343 G$SP$0_0$0 == 0x0081
+                           000081   344 _SP	=	0x0081
+                           000082   345 G$DPL$0_0$0 == 0x0082
+                           000082   346 _DPL	=	0x0082
+                           000083   347 G$DPH$0_0$0 == 0x0083
+                           000083   348 _DPH	=	0x0083
+                           000087   349 G$PCON$0_0$0 == 0x0087
+                           000087   350 _PCON	=	0x0087
+                           000088   351 G$TCON$0_0$0 == 0x0088
+                           000088   352 _TCON	=	0x0088
+                           000089   353 G$TMOD$0_0$0 == 0x0089
+                           000089   354 _TMOD	=	0x0089
+                           00008A   355 G$TL0$0_0$0 == 0x008a
+                           00008A   356 _TL0	=	0x008a
+                           00008B   357 G$TL1$0_0$0 == 0x008b
+                           00008B   358 _TL1	=	0x008b
+                           00008C   359 G$TH0$0_0$0 == 0x008c
+                           00008C   360 _TH0	=	0x008c
+                           00008D   361 G$TH1$0_0$0 == 0x008d
+                           00008D   362 _TH1	=	0x008d
+                           000090   363 G$P1$0_0$0 == 0x0090
+                           000090   364 _P1	=	0x0090
+                           000098   365 G$SCON$0_0$0 == 0x0098
+                           000098   366 _SCON	=	0x0098
+                           000099   367 G$SBUF$0_0$0 == 0x0099
+                           000099   368 _SBUF	=	0x0099
+                           0000A0   369 G$P2$0_0$0 == 0x00a0
+                           0000A0   370 _P2	=	0x00a0
+                           0000A8   371 G$IE$0_0$0 == 0x00a8
+                           0000A8   372 _IE	=	0x00a8
+                           0000B0   373 G$P3$0_0$0 == 0x00b0
+                           0000B0   374 _P3	=	0x00b0
+                           0000B8   375 G$IP$0_0$0 == 0x00b8
+                           0000B8   376 _IP	=	0x00b8
+                           0000D0   377 G$PSW$0_0$0 == 0x00d0
+                           0000D0   378 _PSW	=	0x00d0
+                           0000E0   379 G$ACC$0_0$0 == 0x00e0
+                           0000E0   380 _ACC	=	0x00e0
+                           0000F0   381 G$B$0_0$0 == 0x00f0
+                           0000F0   382 _B	=	0x00f0
+                                    383 ;--------------------------------------------------------
+                                    384 ; special function bits
+                                    385 ;--------------------------------------------------------
+                                    386 	.area RSEG    (ABS,DATA)
+      000000                        387 	.org 0x0000
+                           0000AD   388 G$ET2$0_0$0 == 0x00ad
+                           0000AD   389 _ET2	=	0x00ad
+                           0000BD   390 G$PT2$0_0$0 == 0x00bd
+                           0000BD   391 _PT2	=	0x00bd
+                           0000C8   392 G$T2CON_0$0_0$0 == 0x00c8
+                           0000C8   393 _T2CON_0	=	0x00c8
+                           0000C9   394 G$T2CON_1$0_0$0 == 0x00c9
+                           0000C9   395 _T2CON_1	=	0x00c9
+                           0000CA   396 G$T2CON_2$0_0$0 == 0x00ca
+                           0000CA   397 _T2CON_2	=	0x00ca
+                           0000CB   398 G$T2CON_3$0_0$0 == 0x00cb
+                           0000CB   399 _T2CON_3	=	0x00cb
+                           0000CC   400 G$T2CON_4$0_0$0 == 0x00cc
+                           0000CC   401 _T2CON_4	=	0x00cc
+                           0000CD   402 G$T2CON_5$0_0$0 == 0x00cd
+                           0000CD   403 _T2CON_5	=	0x00cd
+                           0000CE   404 G$T2CON_6$0_0$0 == 0x00ce
+                           0000CE   405 _T2CON_6	=	0x00ce
+                           0000CF   406 G$T2CON_7$0_0$0 == 0x00cf
+                           0000CF   407 _T2CON_7	=	0x00cf
+                           0000C8   408 G$CP_RL2$0_0$0 == 0x00c8
+                           0000C8   409 _CP_RL2	=	0x00c8
+                           0000C9   410 G$C_T2$0_0$0 == 0x00c9
+                           0000C9   411 _C_T2	=	0x00c9
+                           0000CA   412 G$TR2$0_0$0 == 0x00ca
+                           0000CA   413 _TR2	=	0x00ca
+                           0000CB   414 G$EXEN2$0_0$0 == 0x00cb
+                           0000CB   415 _EXEN2	=	0x00cb
+                           0000CC   416 G$TCLK$0_0$0 == 0x00cc
+                           0000CC   417 _TCLK	=	0x00cc
+                           0000CD   418 G$RCLK$0_0$0 == 0x00cd
+                           0000CD   419 _RCLK	=	0x00cd
+                           0000CE   420 G$EXF2$0_0$0 == 0x00ce
+                           0000CE   421 _EXF2	=	0x00ce
+                           0000CF   422 G$TF2$0_0$0 == 0x00cf
+                           0000CF   423 _TF2	=	0x00cf
+                           0000DF   424 G$CF$0_0$0 == 0x00df
+                           0000DF   425 _CF	=	0x00df
+                           0000DE   426 G$CR$0_0$0 == 0x00de
+                           0000DE   427 _CR	=	0x00de
+                           0000DC   428 G$CCF4$0_0$0 == 0x00dc
+                           0000DC   429 _CCF4	=	0x00dc
+                           0000DB   430 G$CCF3$0_0$0 == 0x00db
+                           0000DB   431 _CCF3	=	0x00db
+                           0000DA   432 G$CCF2$0_0$0 == 0x00da
+                           0000DA   433 _CCF2	=	0x00da
+                           0000D9   434 G$CCF1$0_0$0 == 0x00d9
+                           0000D9   435 _CCF1	=	0x00d9
+                           0000D8   436 G$CCF0$0_0$0 == 0x00d8
+                           0000D8   437 _CCF0	=	0x00d8
+                           0000AE   438 G$EC$0_0$0 == 0x00ae
+                           0000AE   439 _EC	=	0x00ae
+                           0000BE   440 G$PPCL$0_0$0 == 0x00be
+                           0000BE   441 _PPCL	=	0x00be
+                           0000BD   442 G$PT2L$0_0$0 == 0x00bd
+                           0000BD   443 _PT2L	=	0x00bd
+                           0000BC   444 G$PSL$0_0$0 == 0x00bc
+                           0000BC   445 _PSL	=	0x00bc
+                           0000BB   446 G$PT1L$0_0$0 == 0x00bb
+                           0000BB   447 _PT1L	=	0x00bb
+                           0000BA   448 G$PX1L$0_0$0 == 0x00ba
+                           0000BA   449 _PX1L	=	0x00ba
+                           0000B9   450 G$PT0L$0_0$0 == 0x00b9
+                           0000B9   451 _PT0L	=	0x00b9
+                           0000B8   452 G$PX0L$0_0$0 == 0x00b8
+                           0000B8   453 _PX0L	=	0x00b8
+                           0000C0   454 G$P4_0$0_0$0 == 0x00c0
+                           0000C0   455 _P4_0	=	0x00c0
+                           0000C1   456 G$P4_1$0_0$0 == 0x00c1
+                           0000C1   457 _P4_1	=	0x00c1
+                           0000C2   458 G$P4_2$0_0$0 == 0x00c2
+                           0000C2   459 _P4_2	=	0x00c2
+                           0000C3   460 G$P4_3$0_0$0 == 0x00c3
+                           0000C3   461 _P4_3	=	0x00c3
+                           0000C4   462 G$P4_4$0_0$0 == 0x00c4
+                           0000C4   463 _P4_4	=	0x00c4
+                           0000C5   464 G$P4_5$0_0$0 == 0x00c5
+                           0000C5   465 _P4_5	=	0x00c5
+                           0000C6   466 G$P4_6$0_0$0 == 0x00c6
+                           0000C6   467 _P4_6	=	0x00c6
+                           0000C7   468 G$P4_7$0_0$0 == 0x00c7
+                           0000C7   469 _P4_7	=	0x00c7
+                           0000E8   470 G$P5_0$0_0$0 == 0x00e8
+                           0000E8   471 _P5_0	=	0x00e8
+                           0000E9   472 G$P5_1$0_0$0 == 0x00e9
+                           0000E9   473 _P5_1	=	0x00e9
+                           0000EA   474 G$P5_2$0_0$0 == 0x00ea
+                           0000EA   475 _P5_2	=	0x00ea
+                           0000EB   476 G$P5_3$0_0$0 == 0x00eb
+                           0000EB   477 _P5_3	=	0x00eb
+                           0000EC   478 G$P5_4$0_0$0 == 0x00ec
+                           0000EC   479 _P5_4	=	0x00ec
+                           0000ED   480 G$P5_5$0_0$0 == 0x00ed
+                           0000ED   481 _P5_5	=	0x00ed
+                           0000EE   482 G$P5_6$0_0$0 == 0x00ee
+                           0000EE   483 _P5_6	=	0x00ee
+                           0000EF   484 G$P5_7$0_0$0 == 0x00ef
+                           0000EF   485 _P5_7	=	0x00ef
+                           0000F0   486 G$BREG_F0$0_0$0 == 0x00f0
+                           0000F0   487 _BREG_F0	=	0x00f0
+                           0000F1   488 G$BREG_F1$0_0$0 == 0x00f1
+                           0000F1   489 _BREG_F1	=	0x00f1
+                           0000F2   490 G$BREG_F2$0_0$0 == 0x00f2
+                           0000F2   491 _BREG_F2	=	0x00f2
+                           0000F3   492 G$BREG_F3$0_0$0 == 0x00f3
+                           0000F3   493 _BREG_F3	=	0x00f3
+                           0000F4   494 G$BREG_F4$0_0$0 == 0x00f4
+                           0000F4   495 _BREG_F4	=	0x00f4
+                           0000F5   496 G$BREG_F5$0_0$0 == 0x00f5
+                           0000F5   497 _BREG_F5	=	0x00f5
+                           0000F6   498 G$BREG_F6$0_0$0 == 0x00f6
+                           0000F6   499 _BREG_F6	=	0x00f6
+                           0000F7   500 G$BREG_F7$0_0$0 == 0x00f7
+                           0000F7   501 _BREG_F7	=	0x00f7
+                           0000B0   502 G$RXD0$0_0$0 == 0x00b0
+                           0000B0   503 _RXD0	=	0x00b0
+                           0000B1   504 G$TXD0$0_0$0 == 0x00b1
+                           0000B1   505 _TXD0	=	0x00b1
+                           000080   506 G$P0_0$0_0$0 == 0x0080
+                           000080   507 _P0_0	=	0x0080
+                           000081   508 G$P0_1$0_0$0 == 0x0081
+                           000081   509 _P0_1	=	0x0081
+                           000082   510 G$P0_2$0_0$0 == 0x0082
+                           000082   511 _P0_2	=	0x0082
+                           000083   512 G$P0_3$0_0$0 == 0x0083
+                           000083   513 _P0_3	=	0x0083
+                           000084   514 G$P0_4$0_0$0 == 0x0084
+                           000084   515 _P0_4	=	0x0084
+                           000085   516 G$P0_5$0_0$0 == 0x0085
+                           000085   517 _P0_5	=	0x0085
+                           000086   518 G$P0_6$0_0$0 == 0x0086
+                           000086   519 _P0_6	=	0x0086
+                           000087   520 G$P0_7$0_0$0 == 0x0087
+                           000087   521 _P0_7	=	0x0087
+                           000088   522 G$IT0$0_0$0 == 0x0088
+                           000088   523 _IT0	=	0x0088
+                           000089   524 G$IE0$0_0$0 == 0x0089
+                           000089   525 _IE0	=	0x0089
+                           00008A   526 G$IT1$0_0$0 == 0x008a
+                           00008A   527 _IT1	=	0x008a
+                           00008B   528 G$IE1$0_0$0 == 0x008b
+                           00008B   529 _IE1	=	0x008b
+                           00008C   530 G$TR0$0_0$0 == 0x008c
+                           00008C   531 _TR0	=	0x008c
+                           00008D   532 G$TF0$0_0$0 == 0x008d
+                           00008D   533 _TF0	=	0x008d
+                           00008E   534 G$TR1$0_0$0 == 0x008e
+                           00008E   535 _TR1	=	0x008e
+                           00008F   536 G$TF1$0_0$0 == 0x008f
+                           00008F   537 _TF1	=	0x008f
+                           000090   538 G$P1_0$0_0$0 == 0x0090
+                           000090   539 _P1_0	=	0x0090
+                           000091   540 G$P1_1$0_0$0 == 0x0091
+                           000091   541 _P1_1	=	0x0091
+                           000092   542 G$P1_2$0_0$0 == 0x0092
+                           000092   543 _P1_2	=	0x0092
+                           000093   544 G$P1_3$0_0$0 == 0x0093
+                           000093   545 _P1_3	=	0x0093
+                           000094   546 G$P1_4$0_0$0 == 0x0094
+                           000094   547 _P1_4	=	0x0094
+                           000095   548 G$P1_5$0_0$0 == 0x0095
+                           000095   549 _P1_5	=	0x0095
+                           000096   550 G$P1_6$0_0$0 == 0x0096
+                           000096   551 _P1_6	=	0x0096
+                           000097   552 G$P1_7$0_0$0 == 0x0097
+                           000097   553 _P1_7	=	0x0097
+                           000098   554 G$RI$0_0$0 == 0x0098
+                           000098   555 _RI	=	0x0098
+                           000099   556 G$TI$0_0$0 == 0x0099
+                           000099   557 _TI	=	0x0099
+                           00009A   558 G$RB8$0_0$0 == 0x009a
+                           00009A   559 _RB8	=	0x009a
+                           00009B   560 G$TB8$0_0$0 == 0x009b
+                           00009B   561 _TB8	=	0x009b
+                           00009C   562 G$REN$0_0$0 == 0x009c
+                           00009C   563 _REN	=	0x009c
+                           00009D   564 G$SM2$0_0$0 == 0x009d
+                           00009D   565 _SM2	=	0x009d
+                           00009E   566 G$SM1$0_0$0 == 0x009e
+                           00009E   567 _SM1	=	0x009e
+                           00009F   568 G$SM0$0_0$0 == 0x009f
+                           00009F   569 _SM0	=	0x009f
+                           0000A0   570 G$P2_0$0_0$0 == 0x00a0
+                           0000A0   571 _P2_0	=	0x00a0
+                           0000A1   572 G$P2_1$0_0$0 == 0x00a1
+                           0000A1   573 _P2_1	=	0x00a1
+                           0000A2   574 G$P2_2$0_0$0 == 0x00a2
+                           0000A2   575 _P2_2	=	0x00a2
+                           0000A3   576 G$P2_3$0_0$0 == 0x00a3
+                           0000A3   577 _P2_3	=	0x00a3
+                           0000A4   578 G$P2_4$0_0$0 == 0x00a4
+                           0000A4   579 _P2_4	=	0x00a4
+                           0000A5   580 G$P2_5$0_0$0 == 0x00a5
+                           0000A5   581 _P2_5	=	0x00a5
+                           0000A6   582 G$P2_6$0_0$0 == 0x00a6
+                           0000A6   583 _P2_6	=	0x00a6
+                           0000A7   584 G$P2_7$0_0$0 == 0x00a7
+                           0000A7   585 _P2_7	=	0x00a7
+                           0000A8   586 G$EX0$0_0$0 == 0x00a8
+                           0000A8   587 _EX0	=	0x00a8
+                           0000A9   588 G$ET0$0_0$0 == 0x00a9
+                           0000A9   589 _ET0	=	0x00a9
+                           0000AA   590 G$EX1$0_0$0 == 0x00aa
+                           0000AA   591 _EX1	=	0x00aa
+                           0000AB   592 G$ET1$0_0$0 == 0x00ab
+                           0000AB   593 _ET1	=	0x00ab
+                           0000AC   594 G$ES$0_0$0 == 0x00ac
+                           0000AC   595 _ES	=	0x00ac
+                           0000AF   596 G$EA$0_0$0 == 0x00af
+                           0000AF   597 _EA	=	0x00af
+                           0000B0   598 G$P3_0$0_0$0 == 0x00b0
+                           0000B0   599 _P3_0	=	0x00b0
+                           0000B1   600 G$P3_1$0_0$0 == 0x00b1
+                           0000B1   601 _P3_1	=	0x00b1
+                           0000B2   602 G$P3_2$0_0$0 == 0x00b2
+                           0000B2   603 _P3_2	=	0x00b2
+                           0000B3   604 G$P3_3$0_0$0 == 0x00b3
+                           0000B3   605 _P3_3	=	0x00b3
+                           0000B4   606 G$P3_4$0_0$0 == 0x00b4
+                           0000B4   607 _P3_4	=	0x00b4
+                           0000B5   608 G$P3_5$0_0$0 == 0x00b5
+                           0000B5   609 _P3_5	=	0x00b5
+                           0000B6   610 G$P3_6$0_0$0 == 0x00b6
+                           0000B6   611 _P3_6	=	0x00b6
+                           0000B7   612 G$P3_7$0_0$0 == 0x00b7
+                           0000B7   613 _P3_7	=	0x00b7
+                           0000B0   614 G$RXD$0_0$0 == 0x00b0
+                           0000B0   615 _RXD	=	0x00b0
+                           0000B1   616 G$TXD$0_0$0 == 0x00b1
+                           0000B1   617 _TXD	=	0x00b1
+                           0000B2   618 G$INT0$0_0$0 == 0x00b2
+                           0000B2   619 _INT0	=	0x00b2
+                           0000B3   620 G$INT1$0_0$0 == 0x00b3
+                           0000B3   621 _INT1	=	0x00b3
+                           0000B4   622 G$T0$0_0$0 == 0x00b4
+                           0000B4   623 _T0	=	0x00b4
+                           0000B5   624 G$T1$0_0$0 == 0x00b5
+                           0000B5   625 _T1	=	0x00b5
+                           0000B6   626 G$WR$0_0$0 == 0x00b6
+                           0000B6   627 _WR	=	0x00b6
+                           0000B7   628 G$RD$0_0$0 == 0x00b7
+                           0000B7   629 _RD	=	0x00b7
+                           0000B8   630 G$PX0$0_0$0 == 0x00b8
+                           0000B8   631 _PX0	=	0x00b8
+                           0000B9   632 G$PT0$0_0$0 == 0x00b9
+                           0000B9   633 _PT0	=	0x00b9
+                           0000BA   634 G$PX1$0_0$0 == 0x00ba
+                           0000BA   635 _PX1	=	0x00ba
+                           0000BB   636 G$PT1$0_0$0 == 0x00bb
+                           0000BB   637 _PT1	=	0x00bb
+                           0000BC   638 G$PS$0_0$0 == 0x00bc
+                           0000BC   639 _PS	=	0x00bc
+                           0000D0   640 G$P$0_0$0 == 0x00d0
+                           0000D0   641 _P	=	0x00d0
+                           0000D1   642 G$F1$0_0$0 == 0x00d1
+                           0000D1   643 _F1	=	0x00d1
+                           0000D2   644 G$OV$0_0$0 == 0x00d2
+                           0000D2   645 _OV	=	0x00d2
+                           0000D3   646 G$RS0$0_0$0 == 0x00d3
+                           0000D3   647 _RS0	=	0x00d3
+                           0000D4   648 G$RS1$0_0$0 == 0x00d4
+                           0000D4   649 _RS1	=	0x00d4
+                           0000D5   650 G$F0$0_0$0 == 0x00d5
+                           0000D5   651 _F0	=	0x00d5
+                           0000D6   652 G$AC$0_0$0 == 0x00d6
+                           0000D6   653 _AC	=	0x00d6
+                           0000D7   654 G$CY$0_0$0 == 0x00d7
+                           0000D7   655 _CY	=	0x00d7
+                                    656 ;--------------------------------------------------------
+                                    657 ; overlayable register banks
+                                    658 ;--------------------------------------------------------
+                                    659 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        660 	.ds 8
+                                    661 ;--------------------------------------------------------
+                                    662 ; internal ram data
+                                    663 ;--------------------------------------------------------
+                                    664 	.area DSEG    (DATA)
+                                    665 ;--------------------------------------------------------
+                                    666 ; overlayable items in internal ram
+                                    667 ;--------------------------------------------------------
+                                    668 ;--------------------------------------------------------
+                                    669 ; indirectly addressable internal ram data
+                                    670 ;--------------------------------------------------------
+                                    671 	.area ISEG    (DATA)
+                                    672 ;--------------------------------------------------------
+                                    673 ; absolute internal ram data
+                                    674 ;--------------------------------------------------------
+                                    675 	.area IABS    (ABS,DATA)
+                                    676 	.area IABS    (ABS,DATA)
+                                    677 ;--------------------------------------------------------
+                                    678 ; bit data
+                                    679 ;--------------------------------------------------------
+                                    680 	.area BSEG    (BIT)
+                                    681 ;--------------------------------------------------------
+                                    682 ; paged external ram data
+                                    683 ;--------------------------------------------------------
+                                    684 	.area PSEG    (PAG,XDATA)
+                                    685 ;--------------------------------------------------------
+                                    686 ; external ram data
+                                    687 ;--------------------------------------------------------
+                                    688 	.area XSEG    (XDATA)
+                           000000   689 Lfunc.putchar$c$1_0$71==.
+      000000                        690 _putchar_c_65536_71:
+      000000                        691 	.ds 2
+                           000002   692 Lfunc.putstr$s$1_0$75==.
+      000002                        693 _putstr_s_65536_75:
+      000002                        694 	.ds 3
+                           000005   695 Lfunc.getstr$s$1_0$78==.
+      000005                        696 _getstr_s_65536_78:
+      000005                        697 	.ds 3
+                           000008   698 Lfunc.get_number1$a$1_0$84==.
+      000008                        699 _get_number1_a_65536_84:
+      000008                        700 	.ds 2
+                           00000A   701 Lfunc.get_number2$a$1_0$91==.
+      00000A                        702 _get_number2_a_65536_91:
+      00000A                        703 	.ds 4
+                                    704 ;--------------------------------------------------------
+                                    705 ; absolute external ram data
+                                    706 ;--------------------------------------------------------
+                                    707 	.area XABS    (ABS,XDATA)
+                                    708 ;--------------------------------------------------------
+                                    709 ; external initialized ram data
+                                    710 ;--------------------------------------------------------
+                                    711 	.area XISEG   (XDATA)
+                                    712 	.area HOME    (CODE)
+                                    713 	.area GSINIT0 (CODE)
+                                    714 	.area GSINIT1 (CODE)
+                                    715 	.area GSINIT2 (CODE)
+                                    716 	.area GSINIT3 (CODE)
+                                    717 	.area GSINIT4 (CODE)
+                                    718 	.area GSINIT5 (CODE)
+                                    719 	.area GSINIT  (CODE)
+                                    720 	.area GSFINAL (CODE)
+                                    721 	.area CSEG    (CODE)
+                                    722 ;--------------------------------------------------------
+                                    723 ; global & static initialisations
+                                    724 ;--------------------------------------------------------
+                                    725 	.area HOME    (CODE)
+                                    726 	.area GSINIT  (CODE)
+                                    727 	.area GSFINAL (CODE)
+                                    728 	.area GSINIT  (CODE)
+                                    729 ;--------------------------------------------------------
+                                    730 ; Home
+                                    731 ;--------------------------------------------------------
+                                    732 	.area HOME    (CODE)
+                                    733 	.area HOME    (CODE)
+                                    734 ;--------------------------------------------------------
+                                    735 ; code
+                                    736 ;--------------------------------------------------------
+                                    737 	.area CSEG    (CODE)
+                                    738 ;------------------------------------------------------------
+                                    739 ;Allocation info for local variables in function 'Init_Serial'
+                                    740 ;------------------------------------------------------------
+                           000000   741 	G$Init_Serial$0$0 ==.
+                           000000   742 	C$func.c$18$0_0$70 ==.
+                                    743 ;	func.c:18: void Init_Serial(void){
+                                    744 ;	-----------------------------------------
+                                    745 ;	 function Init_Serial
+                                    746 ;	-----------------------------------------
+      000062                        747 _Init_Serial:
+                           000007   748 	ar7 = 0x07
+                           000006   749 	ar6 = 0x06
+                           000005   750 	ar5 = 0x05
+                           000004   751 	ar4 = 0x04
+                           000003   752 	ar3 = 0x03
+                           000002   753 	ar2 = 0x02
+                           000001   754 	ar1 = 0x01
+                           000000   755 	ar0 = 0x00
+                           000000   756 	C$func.c$20$1_0$70 ==.
+                                    757 ;	func.c:20: SCON=0x50; //serial communication enabled
+      000062 75 98 50         [24]  758 	mov	_SCON,#0x50
+                           000003   759 	C$func.c$21$1_0$70 ==.
+                                    760 ;	func.c:21: PCON=0;   //power control register
+      000065 75 87 00         [24]  761 	mov	_PCON,#0x00
+                           000006   762 	C$func.c$22$1_0$70 ==.
+                                    763 ;	func.c:22: TMOD=0x20; //mode selection register
+      000068 75 89 20         [24]  764 	mov	_TMOD,#0x20
+                           000009   765 	C$func.c$23$1_0$70 ==.
+                                    766 ;	func.c:23: TH1=0xFD; //baud rate of timer1 set to 9600
+      00006B 75 8D FD         [24]  767 	mov	_TH1,#0xfd
+                           00000C   768 	C$func.c$24$1_0$70 ==.
+                                    769 ;	func.c:24: TR1=1; //timer 1 run control bit enabled
+                                    770 ;	assignBit
+      00006E D2 8E            [12]  771 	setb	_TR1
+                           00000E   772 	C$func.c$25$1_0$70 ==.
+                                    773 ;	func.c:25: TI=1; //transmit interrupt flag set high
+                                    774 ;	assignBit
+      000070 D2 99            [12]  775 	setb	_TI
+                           000010   776 	C$func.c$26$1_0$70 ==.
+                                    777 ;	func.c:26: }
+                           000010   778 	C$func.c$26$1_0$70 ==.
+                           000010   779 	XG$Init_Serial$0$0 ==.
+      000072 22               [24]  780 	ret
+                                    781 ;------------------------------------------------------------
+                                    782 ;Allocation info for local variables in function 'putchar'
+                                    783 ;------------------------------------------------------------
+                                    784 ;c                         Allocated with name '_putchar_c_65536_71'
+                                    785 ;------------------------------------------------------------
+                           000011   786 	G$putchar$0$0 ==.
+                           000011   787 	C$func.c$34$1_0$72 ==.
+                                    788 ;	func.c:34: int putchar(int c){
+                                    789 ;	-----------------------------------------
+                                    790 ;	 function putchar
+                                    791 ;	-----------------------------------------
+      000073                        792 _putchar:
+      000073 AF 83            [24]  793 	mov	r7,dph
+      000075 E5 82            [12]  794 	mov	a,dpl
+      000077 90 00 00         [24]  795 	mov	dptr,#_putchar_c_65536_71
+      00007A F0               [24]  796 	movx	@dptr,a
+      00007B EF               [12]  797 	mov	a,r7
+      00007C A3               [24]  798 	inc	dptr
+      00007D F0               [24]  799 	movx	@dptr,a
+                           00001C   800 	C$func.c$36$1_0$72 ==.
+                                    801 ;	func.c:36: while (!TI);				// compare asm code generated for these three linesI
+      00007E                        802 00101$:
+      00007E 30 99 FD         [24]  803 	jnb	_TI,00101$
+                           00001F   804 	C$func.c$37$1_0$72 ==.
+                                    805 ;	func.c:37: SBUF = c;  	// load serial port with transmit value
+      000081 90 00 00         [24]  806 	mov	dptr,#_putchar_c_65536_71
+      000084 E0               [24]  807 	movx	a,@dptr
+      000085 FE               [12]  808 	mov	r6,a
+      000086 A3               [24]  809 	inc	dptr
+      000087 E0               [24]  810 	movx	a,@dptr
+      000088 FF               [12]  811 	mov	r7,a
+      000089 8E 99            [24]  812 	mov	_SBUF,r6
+                           000029   813 	C$func.c$38$1_0$72 ==.
+                                    814 ;	func.c:38: TI = 0;  	// clear TI flag
+                                    815 ;	assignBit
+      00008B C2 99            [12]  816 	clr	_TI
+                           00002B   817 	C$func.c$39$1_0$72 ==.
+                                    818 ;	func.c:39: return c;
+      00008D 8E 82            [24]  819 	mov	dpl,r6
+      00008F 8F 83            [24]  820 	mov	dph,r7
+                           00002F   821 	C$func.c$40$1_0$72 ==.
+                                    822 ;	func.c:40: }
+                           00002F   823 	C$func.c$40$1_0$72 ==.
+                           00002F   824 	XG$putchar$0$0 ==.
+      000091 22               [24]  825 	ret
+                                    826 ;------------------------------------------------------------
+                                    827 ;Allocation info for local variables in function 'getchar'
+                                    828 ;------------------------------------------------------------
+                           000030   829 	G$getchar$0$0 ==.
+                           000030   830 	C$func.c$49$1_0$74 ==.
+                                    831 ;	func.c:49: int getchar (void)
+                                    832 ;	-----------------------------------------
+                                    833 ;	 function getchar
+                                    834 ;	-----------------------------------------
+      000092                        835 _getchar:
+                           000030   836 	C$func.c$52$1_0$74 ==.
+                                    837 ;	func.c:52: while (!RI);                // compare asm code generated for these three lines
+      000092                        838 00101$:
+                           000030   839 	C$func.c$53$1_0$74 ==.
+                                    840 ;	func.c:53: RI = 0;			// clear RI flag
+                                    841 ;	assignBit
+      000092 10 98 02         [24]  842 	jbc	_RI,00114$
+      000095 80 FB            [24]  843 	sjmp	00101$
+      000097                        844 00114$:
+                           000035   845 	C$func.c$54$1_0$74 ==.
+                                    846 ;	func.c:54: return SBUF;  	// return character from SBUF
+      000097 AE 99            [24]  847 	mov	r6,_SBUF
+      000099 7F 00            [12]  848 	mov	r7,#0x00
+      00009B 8E 82            [24]  849 	mov	dpl,r6
+      00009D 8F 83            [24]  850 	mov	dph,r7
+                           00003D   851 	C$func.c$55$1_0$74 ==.
+                                    852 ;	func.c:55: }
+                           00003D   853 	C$func.c$55$1_0$74 ==.
+                           00003D   854 	XG$getchar$0$0 ==.
+      00009F 22               [24]  855 	ret
+                                    856 ;------------------------------------------------------------
+                                    857 ;Allocation info for local variables in function 'putstr'
+                                    858 ;------------------------------------------------------------
+                                    859 ;s                         Allocated with name '_putstr_s_65536_75'
+                                    860 ;i                         Allocated with name '_putstr_i_65536_76'
+                                    861 ;------------------------------------------------------------
+                           00003E   862 	G$putstr$0$0 ==.
+                           00003E   863 	C$func.c$57$1_0$76 ==.
+                                    864 ;	func.c:57: int putstr (char *s)
+                                    865 ;	-----------------------------------------
+                                    866 ;	 function putstr
+                                    867 ;	-----------------------------------------
+      0000A0                        868 _putstr:
+      0000A0 AF F0            [24]  869 	mov	r7,b
+      0000A2 AE 83            [24]  870 	mov	r6,dph
+      0000A4 E5 82            [12]  871 	mov	a,dpl
+      0000A6 90 00 02         [24]  872 	mov	dptr,#_putstr_s_65536_75
+      0000A9 F0               [24]  873 	movx	@dptr,a
+      0000AA EE               [12]  874 	mov	a,r6
+      0000AB A3               [24]  875 	inc	dptr
+      0000AC F0               [24]  876 	movx	@dptr,a
+      0000AD EF               [12]  877 	mov	a,r7
+      0000AE A3               [24]  878 	inc	dptr
+      0000AF F0               [24]  879 	movx	@dptr,a
+                           00004E   880 	C$func.c$61$1_0$76 ==.
+                                    881 ;	func.c:61: while (*s)
+      0000B0 90 00 02         [24]  882 	mov	dptr,#_putstr_s_65536_75
+      0000B3 E0               [24]  883 	movx	a,@dptr
+      0000B4 FD               [12]  884 	mov	r5,a
+      0000B5 A3               [24]  885 	inc	dptr
+      0000B6 E0               [24]  886 	movx	a,@dptr
+      0000B7 FE               [12]  887 	mov	r6,a
+      0000B8 A3               [24]  888 	inc	dptr
+      0000B9 E0               [24]  889 	movx	a,@dptr
+      0000BA FF               [12]  890 	mov	r7,a
+      0000BB 7B 00            [12]  891 	mov	r3,#0x00
+      0000BD 7C 00            [12]  892 	mov	r4,#0x00
+      0000BF                        893 00101$:
+      0000BF 8D 82            [24]  894 	mov	dpl,r5
+      0000C1 8E 83            [24]  895 	mov	dph,r6
+      0000C3 8F F0            [24]  896 	mov	b,r7
+      0000C5 12 06 2A         [24]  897 	lcall	__gptrget
+      0000C8 FA               [12]  898 	mov	r2,a
+      0000C9 60 36            [24]  899 	jz	00108$
+                           000069   900 	C$func.c$63$2_0$77 ==.
+                                    901 ;	func.c:63: putchar(*s++);
+      0000CB 0D               [12]  902 	inc	r5
+      0000CC BD 00 01         [24]  903 	cjne	r5,#0x00,00116$
+      0000CF 0E               [12]  904 	inc	r6
+      0000D0                        905 00116$:
+      0000D0 90 00 02         [24]  906 	mov	dptr,#_putstr_s_65536_75
+      0000D3 ED               [12]  907 	mov	a,r5
+      0000D4 F0               [24]  908 	movx	@dptr,a
+      0000D5 EE               [12]  909 	mov	a,r6
+      0000D6 A3               [24]  910 	inc	dptr
+      0000D7 F0               [24]  911 	movx	@dptr,a
+      0000D8 EF               [12]  912 	mov	a,r7
+      0000D9 A3               [24]  913 	inc	dptr
+      0000DA F0               [24]  914 	movx	@dptr,a
+      0000DB 8A 01            [24]  915 	mov	ar1,r2
+      0000DD 7A 00            [12]  916 	mov	r2,#0x00
+      0000DF 89 82            [24]  917 	mov	dpl,r1
+      0000E1 8A 83            [24]  918 	mov	dph,r2
+      0000E3 C0 07            [24]  919 	push	ar7
+      0000E5 C0 06            [24]  920 	push	ar6
+      0000E7 C0 05            [24]  921 	push	ar5
+      0000E9 C0 04            [24]  922 	push	ar4
+      0000EB C0 03            [24]  923 	push	ar3
+      0000ED 12 00 73         [24]  924 	lcall	_putchar
+      0000F0 D0 03            [24]  925 	pop	ar3
+      0000F2 D0 04            [24]  926 	pop	ar4
+      0000F4 D0 05            [24]  927 	pop	ar5
+      0000F6 D0 06            [24]  928 	pop	ar6
+      0000F8 D0 07            [24]  929 	pop	ar7
+                           000098   930 	C$func.c$64$2_0$77 ==.
+                                    931 ;	func.c:64: i++;
+      0000FA 0B               [12]  932 	inc	r3
+      0000FB BB 00 C1         [24]  933 	cjne	r3,#0x00,00101$
+      0000FE 0C               [12]  934 	inc	r4
+      0000FF 80 BE            [24]  935 	sjmp	00101$
+      000101                        936 00108$:
+      000101 90 00 02         [24]  937 	mov	dptr,#_putstr_s_65536_75
+      000104 ED               [12]  938 	mov	a,r5
+      000105 F0               [24]  939 	movx	@dptr,a
+      000106 EE               [12]  940 	mov	a,r6
+      000107 A3               [24]  941 	inc	dptr
+      000108 F0               [24]  942 	movx	@dptr,a
+      000109 EF               [12]  943 	mov	a,r7
+      00010A A3               [24]  944 	inc	dptr
+      00010B F0               [24]  945 	movx	@dptr,a
+                           0000AA   946 	C$func.c$66$1_0$76 ==.
+                                    947 ;	func.c:66: return i+1;
+      00010C 0B               [12]  948 	inc	r3
+      00010D BB 00 01         [24]  949 	cjne	r3,#0x00,00118$
+      000110 0C               [12]  950 	inc	r4
+      000111                        951 00118$:
+      000111 8B 82            [24]  952 	mov	dpl,r3
+      000113 8C 83            [24]  953 	mov	dph,r4
+                           0000B3   954 	C$func.c$67$1_0$76 ==.
+                                    955 ;	func.c:67: }
+                           0000B3   956 	C$func.c$67$1_0$76 ==.
+                           0000B3   957 	XG$putstr$0$0 ==.
+      000115 22               [24]  958 	ret
+                                    959 ;------------------------------------------------------------
+                                    960 ;Allocation info for local variables in function 'getstr'
+                                    961 ;------------------------------------------------------------
+                                    962 ;s                         Allocated with name '_getstr_s_65536_78'
+                                    963 ;temp                      Allocated with name '_getstr_temp_65536_79'
+                                    964 ;c                         Allocated with name '_getstr_c_65536_79'
+                                    965 ;------------------------------------------------------------
+                           0000B4   966 	G$getstr$0$0 ==.
+                           0000B4   967 	C$func.c$69$1_0$79 ==.
+                                    968 ;	func.c:69: void getstr(char *s)
+                                    969 ;	-----------------------------------------
+                                    970 ;	 function getstr
+                                    971 ;	-----------------------------------------
+      000116                        972 _getstr:
+      000116 AF F0            [24]  973 	mov	r7,b
+      000118 AE 83            [24]  974 	mov	r6,dph
+      00011A E5 82            [12]  975 	mov	a,dpl
+      00011C 90 00 05         [24]  976 	mov	dptr,#_getstr_s_65536_78
+      00011F F0               [24]  977 	movx	@dptr,a
+      000120 EE               [12]  978 	mov	a,r6
+      000121 A3               [24]  979 	inc	dptr
+      000122 F0               [24]  980 	movx	@dptr,a
+      000123 EF               [12]  981 	mov	a,r7
+      000124 A3               [24]  982 	inc	dptr
+      000125 F0               [24]  983 	movx	@dptr,a
+                           0000C4   984 	C$func.c$71$2_0$79 ==.
+                                    985 ;	func.c:71: char *temp=s;
+      000126 90 00 05         [24]  986 	mov	dptr,#_getstr_s_65536_78
+      000129 E0               [24]  987 	movx	a,@dptr
+      00012A FD               [12]  988 	mov	r5,a
+      00012B A3               [24]  989 	inc	dptr
+      00012C E0               [24]  990 	movx	a,@dptr
+      00012D FE               [12]  991 	mov	r6,a
+      00012E A3               [24]  992 	inc	dptr
+      00012F E0               [24]  993 	movx	a,@dptr
+      000130 FF               [12]  994 	mov	r7,a
+                           0000CF   995 	C$func.c$73$1_0$79 ==.
+                                    996 ;	func.c:73: while(1){
+      000131                        997 00112$:
+                           0000CF   998 	C$func.c$74$2_0$80 ==.
+                                    999 ;	func.c:74: c= getchar();           /*get character*/
+      000131 C0 07            [24] 1000 	push	ar7
+      000133 C0 06            [24] 1001 	push	ar6
+      000135 C0 05            [24] 1002 	push	ar5
+      000137 12 00 92         [24] 1003 	lcall	_getchar
+                           0000D8  1004 	C$func.c$75$2_0$80 ==.
+                                   1005 ;	func.c:75: putchar(c);
+      00013A AB 82            [24] 1006 	mov	r3,dpl
+      00013C AC 83            [24] 1007 	mov  r4,dph
+      00013E C0 04            [24] 1008 	push	ar4
+      000140 C0 03            [24] 1009 	push	ar3
+      000142 12 00 73         [24] 1010 	lcall	_putchar
+      000145 D0 03            [24] 1011 	pop	ar3
+      000147 D0 04            [24] 1012 	pop	ar4
+      000149 D0 05            [24] 1013 	pop	ar5
+      00014B D0 06            [24] 1014 	pop	ar6
+      00014D D0 07            [24] 1015 	pop	ar7
+                           0000ED  1016 	C$func.c$76$2_0$80 ==.
+                                   1017 ;	func.c:76: if(c != 0xD){             /*check untill an enter is present*/
+      00014F BB 0D 05         [24] 1018 	cjne	r3,#0x0d,00137$
+      000152 BC 00 02         [24] 1019 	cjne	r4,#0x00,00137$
+      000155 80 5D            [24] 1020 	sjmp	00109$
+      000157                       1021 00137$:
+                           0000F5  1022 	C$func.c$77$3_0$81 ==.
+                                   1023 ;	func.c:77: if((c>=0X41) && (c<=0X5A) || (c>=0X61) && (c<=0X7A) || (c>=0X30) && (c<=0X39) ){ // checks whether character is 0 to 9
+      000157 C3               [12] 1024 	clr	c
+      000158 EB               [12] 1025 	mov	a,r3
+      000159 94 41            [12] 1026 	subb	a,#0x41
+      00015B EC               [12] 1027 	mov	a,r4
+      00015C 64 80            [12] 1028 	xrl	a,#0x80
+      00015E 94 80            [12] 1029 	subb	a,#0x80
+      000160 40 0E            [24] 1030 	jc	00105$
+      000162 74 5A            [12] 1031 	mov	a,#0x5a
+      000164 9B               [12] 1032 	subb	a,r3
+      000165 74 80            [12] 1033 	mov	a,#(0x00 ^ 0x80)
+      000167 8C F0            [24] 1034 	mov	b,r4
+      000169 63 F0 80         [24] 1035 	xrl	b,#0x80
+      00016C 95 F0            [12] 1036 	subb	a,b
+      00016E 50 32            [24] 1037 	jnc	00101$
+      000170                       1038 00105$:
+      000170 C3               [12] 1039 	clr	c
+      000171 EB               [12] 1040 	mov	a,r3
+      000172 94 61            [12] 1041 	subb	a,#0x61
+      000174 EC               [12] 1042 	mov	a,r4
+      000175 64 80            [12] 1043 	xrl	a,#0x80
+      000177 94 80            [12] 1044 	subb	a,#0x80
+      000179 40 0E            [24] 1045 	jc	00107$
+      00017B 74 7A            [12] 1046 	mov	a,#0x7a
+      00017D 9B               [12] 1047 	subb	a,r3
+      00017E 74 80            [12] 1048 	mov	a,#(0x00 ^ 0x80)
+      000180 8C F0            [24] 1049 	mov	b,r4
+      000182 63 F0 80         [24] 1050 	xrl	b,#0x80
+      000185 95 F0            [12] 1051 	subb	a,b
+      000187 50 19            [24] 1052 	jnc	00101$
+      000189                       1053 00107$:
+      000189 C3               [12] 1054 	clr	c
+      00018A EB               [12] 1055 	mov	a,r3
+      00018B 94 30            [12] 1056 	subb	a,#0x30
+      00018D EC               [12] 1057 	mov	a,r4
+      00018E 64 80            [12] 1058 	xrl	a,#0x80
+      000190 94 80            [12] 1059 	subb	a,#0x80
+      000192 40 9D            [24] 1060 	jc	00112$
+      000194 74 39            [12] 1061 	mov	a,#0x39
+      000196 9B               [12] 1062 	subb	a,r3
+      000197 74 80            [12] 1063 	mov	a,#(0x00 ^ 0x80)
+      000199 8C F0            [24] 1064 	mov	b,r4
+      00019B 63 F0 80         [24] 1065 	xrl	b,#0x80
+      00019E 95 F0            [12] 1066 	subb	a,b
+      0001A0 40 8F            [24] 1067 	jc	00112$
+      0001A2                       1068 00101$:
+                           000140  1069 	C$func.c$78$4_0$82 ==.
+                                   1070 ;	func.c:78: *temp=c;
+      0001A2 8D 82            [24] 1071 	mov	dpl,r5
+      0001A4 8E 83            [24] 1072 	mov	dph,r6
+      0001A6 8F F0            [24] 1073 	mov	b,r7
+      0001A8 EB               [12] 1074 	mov	a,r3
+      0001A9 12 05 06         [24] 1075 	lcall	__gptrput
+      0001AC A3               [24] 1076 	inc	dptr
+      0001AD AD 82            [24] 1077 	mov	r5,dpl
+      0001AF AE 83            [24] 1078 	mov	r6,dph
+                           00014F  1079 	C$func.c$79$4_0$82 ==.
+                                   1080 ;	func.c:79: temp++;
+      0001B1 02 01 31         [24] 1081 	ljmp	00112$
+      0001B4                       1082 00109$:
+                           000152  1083 	C$func.c$83$3_0$83 ==.
+                                   1084 ;	func.c:83: *temp='\0';
+      0001B4 8D 82            [24] 1085 	mov	dpl,r5
+      0001B6 8E 83            [24] 1086 	mov	dph,r6
+      0001B8 8F F0            [24] 1087 	mov	b,r7
+      0001BA E4               [12] 1088 	clr	a
+      0001BB 12 05 06         [24] 1089 	lcall	__gptrput
+                           00015C  1090 	C$func.c$84$3_0$83 ==.
+                                   1091 ;	func.c:84: return;
+                           00015C  1092 	C$func.c$87$1_0$79 ==.
+                                   1093 ;	func.c:87: }
+                           00015C  1094 	C$func.c$87$1_0$79 ==.
+                           00015C  1095 	XG$getstr$0$0 ==.
+      0001BE 22               [24] 1096 	ret
+                                   1097 ;------------------------------------------------------------
+                                   1098 ;Allocation info for local variables in function 'get_number1'
+                                   1099 ;------------------------------------------------------------
+                                   1100 ;a                         Allocated with name '_get_number1_a_65536_84'
+                                   1101 ;size1                     Allocated with name '_get_number1_size1_65536_84'
+                                   1102 ;------------------------------------------------------------
+                           00015D  1103 	G$get_number1$0$0 ==.
+                           00015D  1104 	C$func.c$89$1_0$84 ==.
+                                   1105 ;	func.c:89: int get_number1(){
+                                   1106 ;	-----------------------------------------
+                                   1107 ;	 function get_number1
+                                   1108 ;	-----------------------------------------
+      0001BF                       1109 _get_number1:
+                           00015D  1110 	C$func.c$92$1_0$84 ==.
+                                   1111 ;	func.c:92: a=getchar();
+      0001BF 12 00 92         [24] 1112 	lcall	_getchar
+                           000160  1113 	C$func.c$93$1_0$84 ==.
+                                   1114 ;	func.c:93: putchar(a);
+      0001C2 AE 82            [24] 1115 	mov	r6,dpl
+      0001C4 AF 83            [24] 1116 	mov  r7,dph
+      0001C6 C0 07            [24] 1117 	push	ar7
+      0001C8 C0 06            [24] 1118 	push	ar6
+      0001CA 12 00 73         [24] 1119 	lcall	_putchar
+      0001CD D0 06            [24] 1120 	pop	ar6
+      0001CF D0 07            [24] 1121 	pop	ar7
+                           00016F  1122 	C$func.c$95$1_0$84 ==.
+                                   1123 ;	func.c:95: if((a>= 0X30 ) && (a <= 0X39)){
+      0001D1 8E 04            [24] 1124 	mov	ar4,r6
+      0001D3 8F 05            [24] 1125 	mov	ar5,r7
+      0001D5 C3               [12] 1126 	clr	c
+      0001D6 EC               [12] 1127 	mov	a,r4
+      0001D7 94 30            [12] 1128 	subb	a,#0x30
+      0001D9 ED               [12] 1129 	mov	a,r5
+      0001DA 94 00            [12] 1130 	subb	a,#0x00
+      0001DC 40 1E            [24] 1131 	jc	00110$
+      0001DE 8E 04            [24] 1132 	mov	ar4,r6
+      0001E0 8F 05            [24] 1133 	mov	ar5,r7
+      0001E2 C3               [12] 1134 	clr	c
+      0001E3 74 39            [12] 1135 	mov	a,#0x39
+      0001E5 9C               [12] 1136 	subb	a,r4
+      0001E6 E4               [12] 1137 	clr	a
+      0001E7 9D               [12] 1138 	subb	a,r5
+      0001E8 40 12            [24] 1139 	jc	00110$
+                           000188  1140 	C$func.c$96$2_0$85 ==.
+                                   1141 ;	func.c:96: a=a-'0';
+      0001EA EE               [12] 1142 	mov	a,r6
+      0001EB 24 D0            [12] 1143 	add	a,#0xd0
+      0001ED FC               [12] 1144 	mov	r4,a
+      0001EE EF               [12] 1145 	mov	a,r7
+      0001EF 34 FF            [12] 1146 	addc	a,#0xff
+      0001F1 FD               [12] 1147 	mov	r5,a
+      0001F2 90 00 08         [24] 1148 	mov	dptr,#_get_number1_a_65536_84
+      0001F5 EC               [12] 1149 	mov	a,r4
+      0001F6 F0               [24] 1150 	movx	@dptr,a
+      0001F7 ED               [12] 1151 	mov	a,r5
+      0001F8 A3               [24] 1152 	inc	dptr
+      0001F9 F0               [24] 1153 	movx	@dptr,a
+      0001FA 80 6A            [24] 1154 	sjmp	00111$
+      0001FC                       1155 00110$:
+                           00019A  1156 	C$func.c$98$1_0$84 ==.
+                                   1157 ;	func.c:98: else if((a>= 0X41 ) && (a<= 0X46)){
+      0001FC 8E 04            [24] 1158 	mov	ar4,r6
+      0001FE 8F 05            [24] 1159 	mov	ar5,r7
+      000200 C3               [12] 1160 	clr	c
+      000201 EC               [12] 1161 	mov	a,r4
+      000202 94 41            [12] 1162 	subb	a,#0x41
+      000204 ED               [12] 1163 	mov	a,r5
+      000205 94 00            [12] 1164 	subb	a,#0x00
+      000207 40 1E            [24] 1165 	jc	00106$
+      000209 8E 04            [24] 1166 	mov	ar4,r6
+      00020B 8F 05            [24] 1167 	mov	ar5,r7
+      00020D C3               [12] 1168 	clr	c
+      00020E 74 46            [12] 1169 	mov	a,#0x46
+      000210 9C               [12] 1170 	subb	a,r4
+      000211 E4               [12] 1171 	clr	a
+      000212 9D               [12] 1172 	subb	a,r5
+      000213 40 12            [24] 1173 	jc	00106$
+                           0001B3  1174 	C$func.c$99$2_0$86 ==.
+                                   1175 ;	func.c:99: a=a-55; //capital letters
+      000215 EE               [12] 1176 	mov	a,r6
+      000216 24 C9            [12] 1177 	add	a,#0xc9
+      000218 FC               [12] 1178 	mov	r4,a
+      000219 EF               [12] 1179 	mov	a,r7
+      00021A 34 FF            [12] 1180 	addc	a,#0xff
+      00021C FD               [12] 1181 	mov	r5,a
+      00021D 90 00 08         [24] 1182 	mov	dptr,#_get_number1_a_65536_84
+      000220 EC               [12] 1183 	mov	a,r4
+      000221 F0               [24] 1184 	movx	@dptr,a
+      000222 ED               [12] 1185 	mov	a,r5
+      000223 A3               [24] 1186 	inc	dptr
+      000224 F0               [24] 1187 	movx	@dptr,a
+      000225 80 3F            [24] 1188 	sjmp	00111$
+      000227                       1189 00106$:
+                           0001C5  1190 	C$func.c$101$1_0$84 ==.
+                                   1191 ;	func.c:101: else if((a>= 0X61 ) && (a <= 0X66)){
+      000227 8E 04            [24] 1192 	mov	ar4,r6
+      000229 8F 05            [24] 1193 	mov	ar5,r7
+      00022B C3               [12] 1194 	clr	c
+      00022C EC               [12] 1195 	mov	a,r4
+      00022D 94 61            [12] 1196 	subb	a,#0x61
+      00022F ED               [12] 1197 	mov	a,r5
+      000230 94 00            [12] 1198 	subb	a,#0x00
+      000232 40 1E            [24] 1199 	jc	00102$
+      000234 8E 04            [24] 1200 	mov	ar4,r6
+      000236 8F 05            [24] 1201 	mov	ar5,r7
+      000238 C3               [12] 1202 	clr	c
+      000239 74 66            [12] 1203 	mov	a,#0x66
+      00023B 9C               [12] 1204 	subb	a,r4
+      00023C E4               [12] 1205 	clr	a
+      00023D 9D               [12] 1206 	subb	a,r5
+      00023E 40 12            [24] 1207 	jc	00102$
+                           0001DE  1208 	C$func.c$102$2_0$87 ==.
+                                   1209 ;	func.c:102: a=a-87;
+      000240 EE               [12] 1210 	mov	a,r6
+      000241 24 A9            [12] 1211 	add	a,#0xa9
+      000243 FE               [12] 1212 	mov	r6,a
+      000244 EF               [12] 1213 	mov	a,r7
+      000245 34 FF            [12] 1214 	addc	a,#0xff
+      000247 FF               [12] 1215 	mov	r7,a
+      000248 90 00 08         [24] 1216 	mov	dptr,#_get_number1_a_65536_84
+      00024B EE               [12] 1217 	mov	a,r6
+      00024C F0               [24] 1218 	movx	@dptr,a
+      00024D EF               [12] 1219 	mov	a,r7
+      00024E A3               [24] 1220 	inc	dptr
+      00024F F0               [24] 1221 	movx	@dptr,a
+      000250 80 14            [24] 1222 	sjmp	00111$
+      000252                       1223 00102$:
+                           0001F0  1224 	C$func.c$105$2_0$88 ==.
+                                   1225 ;	func.c:105: printf_tiny("invalid character\n\r");
+      000252 74 4A            [12] 1226 	mov	a,#___str_0
+      000254 C0 E0            [24] 1227 	push	acc
+      000256 74 06            [12] 1228 	mov	a,#(___str_0 >> 8)
+      000258 C0 E0            [24] 1229 	push	acc
+      00025A 12 05 21         [24] 1230 	lcall	_printf_tiny
+      00025D 15 81            [12] 1231 	dec	sp
+      00025F 15 81            [12] 1232 	dec	sp
+                           0001FF  1233 	C$func.c$106$2_0$88 ==.
+                                   1234 ;	func.c:106: return 0;
+      000261 90 00 00         [24] 1235 	mov	dptr,#0x0000
+      000264 80 51            [24] 1236 	sjmp	00117$
+      000266                       1237 00111$:
+                           000204  1238 	C$func.c$109$1_0$84 ==.
+                                   1239 ;	func.c:109: size1=a; //convering characters to 3 digit number
+      000266 90 00 08         [24] 1240 	mov	dptr,#_get_number1_a_65536_84
+      000269 E0               [24] 1241 	movx	a,@dptr
+      00026A FE               [12] 1242 	mov	r6,a
+      00026B A3               [24] 1243 	inc	dptr
+      00026C E0               [24] 1244 	movx	a,@dptr
+      00026D FF               [12] 1245 	mov	r7,a
+                           00020C  1246 	C$func.c$110$1_0$84 ==.
+                                   1247 ;	func.c:110: printf_tiny("\n\rnumber entered is %x \r\n",size1);
+      00026E C0 07            [24] 1248 	push	ar7
+      000270 C0 06            [24] 1249 	push	ar6
+      000272 C0 06            [24] 1250 	push	ar6
+      000274 C0 07            [24] 1251 	push	ar7
+      000276 74 5E            [12] 1252 	mov	a,#___str_1
+      000278 C0 E0            [24] 1253 	push	acc
+      00027A 74 06            [12] 1254 	mov	a,#(___str_1 >> 8)
+      00027C C0 E0            [24] 1255 	push	acc
+      00027E 12 05 21         [24] 1256 	lcall	_printf_tiny
+      000281 E5 81            [12] 1257 	mov	a,sp
+      000283 24 FC            [12] 1258 	add	a,#0xfc
+      000285 F5 81            [12] 1259 	mov	sp,a
+      000287 D0 06            [24] 1260 	pop	ar6
+      000289 D0 07            [24] 1261 	pop	ar7
+                           000229  1262 	C$func.c$111$1_0$84 ==.
+                                   1263 ;	func.c:111: if((0<=size1) && (size1<256) ){ //if under limit returns size1
+      00028B 8E 04            [24] 1264 	mov	ar4,r6
+      00028D 8F 05            [24] 1265 	mov	ar5,r7
+      00028F ED               [12] 1266 	mov	a,r5
+      000290 20 E7 12         [24] 1267 	jb	acc.7,00114$
+      000293 8E 04            [24] 1268 	mov	ar4,r6
+      000295 8F 05            [24] 1269 	mov	ar5,r7
+      000297 C3               [12] 1270 	clr	c
+      000298 ED               [12] 1271 	mov	a,r5
+      000299 64 80            [12] 1272 	xrl	a,#0x80
+      00029B 94 81            [12] 1273 	subb	a,#0x81
+      00029D 50 06            [24] 1274 	jnc	00114$
+                           00023D  1275 	C$func.c$112$2_0$89 ==.
+                                   1276 ;	func.c:112: return size1;
+      00029F 8E 82            [24] 1277 	mov	dpl,r6
+      0002A1 8F 83            [24] 1278 	mov	dph,r7
+      0002A3 80 12            [24] 1279 	sjmp	00117$
+      0002A5                       1280 00114$:
+                           000243  1281 	C$func.c$115$2_0$90 ==.
+                                   1282 ;	func.c:115: printf_tiny("\n\rinvalid Address. Enter a valid  Address\r\n");
+      0002A5 74 78            [12] 1283 	mov	a,#___str_2
+      0002A7 C0 E0            [24] 1284 	push	acc
+      0002A9 74 06            [12] 1285 	mov	a,#(___str_2 >> 8)
+      0002AB C0 E0            [24] 1286 	push	acc
+      0002AD 12 05 21         [24] 1287 	lcall	_printf_tiny
+      0002B0 15 81            [12] 1288 	dec	sp
+      0002B2 15 81            [12] 1289 	dec	sp
+                           000252  1290 	C$func.c$117$2_0$90 ==.
+                                   1291 ;	func.c:117: return 0;
+      0002B4 90 00 00         [24] 1292 	mov	dptr,#0x0000
+      0002B7                       1293 00117$:
+                           000255  1294 	C$func.c$119$1_0$84 ==.
+                                   1295 ;	func.c:119: }
+                           000255  1296 	C$func.c$119$1_0$84 ==.
+                           000255  1297 	XG$get_number1$0$0 ==.
+      0002B7 22               [24] 1298 	ret
+                                   1299 ;------------------------------------------------------------
+                                   1300 ;Allocation info for local variables in function 'get_number2'
+                                   1301 ;------------------------------------------------------------
+                                   1302 ;a                         Allocated with name '_get_number2_a_65536_91'
+                                   1303 ;size1                     Allocated with name '_get_number2_size1_65536_91'
+                                   1304 ;i                         Allocated with name '_get_number2_i_131072_92'
+                                   1305 ;------------------------------------------------------------
+                           000256  1306 	G$get_number2$0$0 ==.
+                           000256  1307 	C$func.c$120$1_0$91 ==.
+                                   1308 ;	func.c:120: int get_number2(){
+                                   1309 ;	-----------------------------------------
+                                   1310 ;	 function get_number2
+                                   1311 ;	-----------------------------------------
+      0002B8                       1312 _get_number2:
+                           000256  1313 	C$func.c$124$3_0$93 ==.
+                                   1314 ;	func.c:124: L2: printf_tiny("\n\renter number between 0 and FF\r\n");
+      0002B8                       1315 00101$:
+      0002B8 74 A4            [12] 1316 	mov	a,#___str_3
+      0002BA C0 E0            [24] 1317 	push	acc
+      0002BC 74 06            [12] 1318 	mov	a,#(___str_3 >> 8)
+      0002BE C0 E0            [24] 1319 	push	acc
+      0002C0 12 05 21         [24] 1320 	lcall	_printf_tiny
+      0002C3 15 81            [12] 1321 	dec	sp
+      0002C5 15 81            [12] 1322 	dec	sp
+                           000265  1323 	C$func.c$125$1_0$91 ==.
+                                   1324 ;	func.c:125: for(int i=0;i<2;i++){//enter the 3 digit number
+      0002C7 7E 00            [12] 1325 	mov	r6,#0x00
+      0002C9 7F 00            [12] 1326 	mov	r7,#0x00
+      0002CB                       1327 00120$:
+      0002CB C3               [12] 1328 	clr	c
+      0002CC EE               [12] 1329 	mov	a,r6
+      0002CD 94 02            [12] 1330 	subb	a,#0x02
+      0002CF EF               [12] 1331 	mov	a,r7
+      0002D0 64 80            [12] 1332 	xrl	a,#0x80
+      0002D2 94 80            [12] 1333 	subb	a,#0x80
+      0002D4 40 03            [24] 1334 	jc	00168$
+      0002D6 02 03 DE         [24] 1335 	ljmp	00114$
+      0002D9                       1336 00168$:
+                           000277  1337 	C$func.c$126$3_0$93 ==.
+                                   1338 ;	func.c:126: a[i]=getchar();
+      0002D9 EE               [12] 1339 	mov	a,r6
+      0002DA 2E               [12] 1340 	add	a,r6
+      0002DB FC               [12] 1341 	mov	r4,a
+      0002DC EF               [12] 1342 	mov	a,r7
+      0002DD 33               [12] 1343 	rlc	a
+      0002DE FD               [12] 1344 	mov	r5,a
+      0002DF EC               [12] 1345 	mov	a,r4
+      0002E0 24 0A            [12] 1346 	add	a,#_get_number2_a_65536_91
+      0002E2 FC               [12] 1347 	mov	r4,a
+      0002E3 ED               [12] 1348 	mov	a,r5
+      0002E4 34 00            [12] 1349 	addc	a,#(_get_number2_a_65536_91 >> 8)
+      0002E6 FD               [12] 1350 	mov	r5,a
+      0002E7 C0 07            [24] 1351 	push	ar7
+      0002E9 C0 06            [24] 1352 	push	ar6
+      0002EB C0 05            [24] 1353 	push	ar5
+      0002ED C0 04            [24] 1354 	push	ar4
+      0002EF 12 00 92         [24] 1355 	lcall	_getchar
+      0002F2 AA 82            [24] 1356 	mov	r2,dpl
+      0002F4 AB 83            [24] 1357 	mov	r3,dph
+      0002F6 D0 04            [24] 1358 	pop	ar4
+      0002F8 D0 05            [24] 1359 	pop	ar5
+      0002FA 8C 82            [24] 1360 	mov	dpl,r4
+      0002FC 8D 83            [24] 1361 	mov	dph,r5
+      0002FE EA               [12] 1362 	mov	a,r2
+      0002FF F0               [24] 1363 	movx	@dptr,a
+      000300 EB               [12] 1364 	mov	a,r3
+      000301 A3               [24] 1365 	inc	dptr
+      000302 F0               [24] 1366 	movx	@dptr,a
+                           0002A1  1367 	C$func.c$127$3_0$93 ==.
+                                   1368 ;	func.c:127: putchar(a[i]);
+      000303 8C 82            [24] 1369 	mov	dpl,r4
+      000305 8D 83            [24] 1370 	mov	dph,r5
+      000307 E0               [24] 1371 	movx	a,@dptr
+      000308 FA               [12] 1372 	mov	r2,a
+      000309 A3               [24] 1373 	inc	dptr
+      00030A E0               [24] 1374 	movx	a,@dptr
+      00030B FB               [12] 1375 	mov	r3,a
+      00030C 8A 82            [24] 1376 	mov	dpl,r2
+      00030E 8B 83            [24] 1377 	mov	dph,r3
+      000310 C0 05            [24] 1378 	push	ar5
+      000312 C0 04            [24] 1379 	push	ar4
+      000314 12 00 73         [24] 1380 	lcall	_putchar
+      000317 D0 04            [24] 1381 	pop	ar4
+      000319 D0 05            [24] 1382 	pop	ar5
+      00031B D0 06            [24] 1383 	pop	ar6
+      00031D D0 07            [24] 1384 	pop	ar7
+                           0002BD  1385 	C$func.c$129$3_0$93 ==.
+                                   1386 ;	func.c:129: if((a[i]>= 0X30 ) && (a[i] <= 0X39)){
+      00031F 8C 82            [24] 1387 	mov	dpl,r4
+      000321 8D 83            [24] 1388 	mov	dph,r5
+      000323 E0               [24] 1389 	movx	a,@dptr
+      000324 FA               [12] 1390 	mov	r2,a
+      000325 A3               [24] 1391 	inc	dptr
+      000326 E0               [24] 1392 	movx	a,@dptr
+      000327 FB               [12] 1393 	mov	r3,a
+      000328 C3               [12] 1394 	clr	c
+      000329 EA               [12] 1395 	mov	a,r2
+      00032A 94 30            [12] 1396 	subb	a,#0x30
+      00032C EB               [12] 1397 	mov	a,r3
+      00032D 94 00            [12] 1398 	subb	a,#0x00
+      00032F 40 2D            [24] 1399 	jc	00111$
+      000331 8C 82            [24] 1400 	mov	dpl,r4
+      000333 8D 83            [24] 1401 	mov	dph,r5
+      000335 E0               [24] 1402 	movx	a,@dptr
+      000336 FA               [12] 1403 	mov	r2,a
+      000337 A3               [24] 1404 	inc	dptr
+      000338 E0               [24] 1405 	movx	a,@dptr
+      000339 FB               [12] 1406 	mov	r3,a
+      00033A C3               [12] 1407 	clr	c
+      00033B 74 39            [12] 1408 	mov	a,#0x39
+      00033D 9A               [12] 1409 	subb	a,r2
+      00033E E4               [12] 1410 	clr	a
+      00033F 9B               [12] 1411 	subb	a,r3
+      000340 40 1C            [24] 1412 	jc	00111$
+                           0002E0  1413 	C$func.c$130$4_0$94 ==.
+                                   1414 ;	func.c:130: a[i]=a[i]-'0';
+      000342 8C 82            [24] 1415 	mov	dpl,r4
+      000344 8D 83            [24] 1416 	mov	dph,r5
+      000346 E0               [24] 1417 	movx	a,@dptr
+      000347 FA               [12] 1418 	mov	r2,a
+      000348 A3               [24] 1419 	inc	dptr
+      000349 E0               [24] 1420 	movx	a,@dptr
+      00034A FB               [12] 1421 	mov	r3,a
+      00034B EA               [12] 1422 	mov	a,r2
+      00034C 24 D0            [12] 1423 	add	a,#0xd0
+      00034E FA               [12] 1424 	mov	r2,a
+      00034F EB               [12] 1425 	mov	a,r3
+      000350 34 FF            [12] 1426 	addc	a,#0xff
+      000352 FB               [12] 1427 	mov	r3,a
+      000353 8C 82            [24] 1428 	mov	dpl,r4
+      000355 8D 83            [24] 1429 	mov	dph,r5
+      000357 EA               [12] 1430 	mov	a,r2
+      000358 F0               [24] 1431 	movx	@dptr,a
+      000359 EB               [12] 1432 	mov	a,r3
+      00035A A3               [24] 1433 	inc	dptr
+      00035B F0               [24] 1434 	movx	@dptr,a
+      00035C 80 78            [24] 1435 	sjmp	00121$
+      00035E                       1436 00111$:
+                           0002FC  1437 	C$func.c$132$3_0$93 ==.
+                                   1438 ;	func.c:132: else if((a[i]>= 0X41 ) && (a[i] <= 0X46)){
+      00035E EE               [12] 1439 	mov	a,r6
+      00035F 2E               [12] 1440 	add	a,r6
+      000360 FC               [12] 1441 	mov	r4,a
+      000361 EF               [12] 1442 	mov	a,r7
+      000362 33               [12] 1443 	rlc	a
+      000363 FD               [12] 1444 	mov	r5,a
+      000364 EC               [12] 1445 	mov	a,r4
+      000365 24 0A            [12] 1446 	add	a,#_get_number2_a_65536_91
+      000367 FC               [12] 1447 	mov	r4,a
+      000368 ED               [12] 1448 	mov	a,r5
+      000369 34 00            [12] 1449 	addc	a,#(_get_number2_a_65536_91 >> 8)
+      00036B FD               [12] 1450 	mov	r5,a
+      00036C 8C 82            [24] 1451 	mov	dpl,r4
+      00036E 8D 83            [24] 1452 	mov	dph,r5
+      000370 E0               [24] 1453 	movx	a,@dptr
+      000371 FA               [12] 1454 	mov	r2,a
+      000372 A3               [24] 1455 	inc	dptr
+      000373 E0               [24] 1456 	movx	a,@dptr
+      000374 FB               [12] 1457 	mov	r3,a
+      000375 C3               [12] 1458 	clr	c
+      000376 EA               [12] 1459 	mov	a,r2
+      000377 94 41            [12] 1460 	subb	a,#0x41
+      000379 EB               [12] 1461 	mov	a,r3
+      00037A 94 00            [12] 1462 	subb	a,#0x00
+      00037C 40 1A            [24] 1463 	jc	00107$
+      00037E 74 46            [12] 1464 	mov	a,#0x46
+      000380 9A               [12] 1465 	subb	a,r2
+      000381 E4               [12] 1466 	clr	a
+      000382 9B               [12] 1467 	subb	a,r3
+      000383 40 13            [24] 1468 	jc	00107$
+                           000323  1469 	C$func.c$133$4_0$95 ==.
+                                   1470 ;	func.c:133: a[i]=a[i]-55; //capital letters
+      000385 EA               [12] 1471 	mov	a,r2
+      000386 24 C9            [12] 1472 	add	a,#0xc9
+      000388 FA               [12] 1473 	mov	r2,a
+      000389 EB               [12] 1474 	mov	a,r3
+      00038A 34 FF            [12] 1475 	addc	a,#0xff
+      00038C FB               [12] 1476 	mov	r3,a
+      00038D 8C 82            [24] 1477 	mov	dpl,r4
+      00038F 8D 83            [24] 1478 	mov	dph,r5
+      000391 EA               [12] 1479 	mov	a,r2
+      000392 F0               [24] 1480 	movx	@dptr,a
+      000393 EB               [12] 1481 	mov	a,r3
+      000394 A3               [24] 1482 	inc	dptr
+      000395 F0               [24] 1483 	movx	@dptr,a
+      000396 80 3E            [24] 1484 	sjmp	00121$
+      000398                       1485 00107$:
+                           000336  1486 	C$func.c$135$3_0$93 ==.
+                                   1487 ;	func.c:135: else if((a[i]>= 0X61 ) && (a[i] <= 0X66)){
+      000398 8C 82            [24] 1488 	mov	dpl,r4
+      00039A 8D 83            [24] 1489 	mov	dph,r5
+      00039C E0               [24] 1490 	movx	a,@dptr
+      00039D FA               [12] 1491 	mov	r2,a
+      00039E A3               [24] 1492 	inc	dptr
+      00039F E0               [24] 1493 	movx	a,@dptr
+      0003A0 FB               [12] 1494 	mov	r3,a
+      0003A1 C3               [12] 1495 	clr	c
+      0003A2 EA               [12] 1496 	mov	a,r2
+      0003A3 94 61            [12] 1497 	subb	a,#0x61
+      0003A5 EB               [12] 1498 	mov	a,r3
+      0003A6 94 00            [12] 1499 	subb	a,#0x00
+      0003A8 40 1A            [24] 1500 	jc	00103$
+      0003AA 74 66            [12] 1501 	mov	a,#0x66
+      0003AC 9A               [12] 1502 	subb	a,r2
+      0003AD E4               [12] 1503 	clr	a
+      0003AE 9B               [12] 1504 	subb	a,r3
+      0003AF 40 13            [24] 1505 	jc	00103$
+                           00034F  1506 	C$func.c$136$4_0$96 ==.
+                                   1507 ;	func.c:136: a[i]=a[i]-87;
+      0003B1 EA               [12] 1508 	mov	a,r2
+      0003B2 24 A9            [12] 1509 	add	a,#0xa9
+      0003B4 FA               [12] 1510 	mov	r2,a
+      0003B5 EB               [12] 1511 	mov	a,r3
+      0003B6 34 FF            [12] 1512 	addc	a,#0xff
+      0003B8 FB               [12] 1513 	mov	r3,a
+      0003B9 8C 82            [24] 1514 	mov	dpl,r4
+      0003BB 8D 83            [24] 1515 	mov	dph,r5
+      0003BD EA               [12] 1516 	mov	a,r2
+      0003BE F0               [24] 1517 	movx	@dptr,a
+      0003BF EB               [12] 1518 	mov	a,r3
+      0003C0 A3               [24] 1519 	inc	dptr
+      0003C1 F0               [24] 1520 	movx	@dptr,a
+      0003C2 80 12            [24] 1521 	sjmp	00121$
+      0003C4                       1522 00103$:
+                           000362  1523 	C$func.c$139$4_0$97 ==.
+                                   1524 ;	func.c:139: printf_tiny("invalid character\n\r");
+      0003C4 74 4A            [12] 1525 	mov	a,#___str_0
+      0003C6 C0 E0            [24] 1526 	push	acc
+      0003C8 74 06            [12] 1527 	mov	a,#(___str_0 >> 8)
+      0003CA C0 E0            [24] 1528 	push	acc
+      0003CC 12 05 21         [24] 1529 	lcall	_printf_tiny
+      0003CF 15 81            [12] 1530 	dec	sp
+      0003D1 15 81            [12] 1531 	dec	sp
+                           000371  1532 	C$func.c$140$4_0$97 ==.
+                                   1533 ;	func.c:140: goto L2;
+      0003D3 02 02 B8         [24] 1534 	ljmp	00101$
+      0003D6                       1535 00121$:
+                           000374  1536 	C$func.c$125$2_0$92 ==.
+                                   1537 ;	func.c:125: for(int i=0;i<2;i++){//enter the 3 digit number
+      0003D6 0E               [12] 1538 	inc	r6
+      0003D7 BE 00 01         [24] 1539 	cjne	r6,#0x00,00175$
+      0003DA 0F               [12] 1540 	inc	r7
+      0003DB                       1541 00175$:
+      0003DB 02 02 CB         [24] 1542 	ljmp	00120$
+      0003DE                       1543 00114$:
+                           00037C  1544 	C$func.c$143$1_0$91 ==.
+                                   1545 ;	func.c:143: a[0]=(a[0]<<4);
+      0003DE 90 00 0A         [24] 1546 	mov	dptr,#_get_number2_a_65536_91
+      0003E1 E0               [24] 1547 	movx	a,@dptr
+      0003E2 FE               [12] 1548 	mov	r6,a
+      0003E3 A3               [24] 1549 	inc	dptr
+      0003E4 E0               [24] 1550 	movx	a,@dptr
+      0003E5 C4               [12] 1551 	swap	a
+      0003E6 54 F0            [12] 1552 	anl	a,#0xf0
+      0003E8 CE               [12] 1553 	xch	a,r6
+      0003E9 C4               [12] 1554 	swap	a
+      0003EA CE               [12] 1555 	xch	a,r6
+      0003EB 6E               [12] 1556 	xrl	a,r6
+      0003EC CE               [12] 1557 	xch	a,r6
+      0003ED 54 F0            [12] 1558 	anl	a,#0xf0
+      0003EF CE               [12] 1559 	xch	a,r6
+      0003F0 6E               [12] 1560 	xrl	a,r6
+      0003F1 FF               [12] 1561 	mov	r7,a
+      0003F2 90 00 0A         [24] 1562 	mov	dptr,#_get_number2_a_65536_91
+      0003F5 EE               [12] 1563 	mov	a,r6
+      0003F6 F0               [24] 1564 	movx	@dptr,a
+      0003F7 EF               [12] 1565 	mov	a,r7
+      0003F8 A3               [24] 1566 	inc	dptr
+      0003F9 F0               [24] 1567 	movx	@dptr,a
+                           000398  1568 	C$func.c$144$1_0$91 ==.
+                                   1569 ;	func.c:144: size1=(a[0]+a[1]); //convering characters to 3 digit number
+      0003FA 90 00 0C         [24] 1570 	mov	dptr,#(_get_number2_a_65536_91 + 0x0002)
+      0003FD E0               [24] 1571 	movx	a,@dptr
+      0003FE FC               [12] 1572 	mov	r4,a
+      0003FF A3               [24] 1573 	inc	dptr
+      000400 E0               [24] 1574 	movx	a,@dptr
+      000401 FD               [12] 1575 	mov	r5,a
+      000402 EC               [12] 1576 	mov	a,r4
+      000403 2E               [12] 1577 	add	a,r6
+      000404 FE               [12] 1578 	mov	r6,a
+      000405 ED               [12] 1579 	mov	a,r5
+      000406 3F               [12] 1580 	addc	a,r7
+      000407 FF               [12] 1581 	mov	r7,a
+                           0003A6  1582 	C$func.c$145$1_0$91 ==.
+                                   1583 ;	func.c:145: printf_tiny("\n\rnumber entered is %d \r\n",size1);
+      000408 C0 07            [24] 1584 	push	ar7
+      00040A C0 06            [24] 1585 	push	ar6
+      00040C C0 06            [24] 1586 	push	ar6
+      00040E C0 07            [24] 1587 	push	ar7
+      000410 74 C6            [12] 1588 	mov	a,#___str_4
+      000412 C0 E0            [24] 1589 	push	acc
+      000414 74 06            [12] 1590 	mov	a,#(___str_4 >> 8)
+      000416 C0 E0            [24] 1591 	push	acc
+      000418 12 05 21         [24] 1592 	lcall	_printf_tiny
+      00041B E5 81            [12] 1593 	mov	a,sp
+      00041D 24 FC            [12] 1594 	add	a,#0xfc
+      00041F F5 81            [12] 1595 	mov	sp,a
+      000421 D0 06            [24] 1596 	pop	ar6
+      000423 D0 07            [24] 1597 	pop	ar7
+                           0003C3  1598 	C$func.c$146$1_0$91 ==.
+                                   1599 ;	func.c:146: if((0<size1) && (size1<256) ){ //if under limit returns size1
+      000425 C3               [12] 1600 	clr	c
+      000426 E4               [12] 1601 	clr	a
+      000427 9E               [12] 1602 	subb	a,r6
+      000428 E4               [12] 1603 	clr	a
+      000429 9F               [12] 1604 	subb	a,r7
+      00042A 50 0B            [24] 1605 	jnc	00116$
+      00042C 74 FF            [12] 1606 	mov	a,#0x100 - 0x01
+      00042E 2F               [12] 1607 	add	a,r7
+      00042F 40 06            [24] 1608 	jc	00116$
+                           0003CF  1609 	C$func.c$147$2_0$98 ==.
+                                   1610 ;	func.c:147: return size1;
+      000431 8E 82            [24] 1611 	mov	dpl,r6
+      000433 8F 83            [24] 1612 	mov	dph,r7
+      000435 80 12            [24] 1613 	sjmp	00122$
+      000437                       1614 00116$:
+                           0003D5  1615 	C$func.c$150$2_0$99 ==.
+                                   1616 ;	func.c:150: printf_tiny("\n\rinvalid Address. Enter a valid  Address\r\n");
+      000437 74 78            [12] 1617 	mov	a,#___str_2
+      000439 C0 E0            [24] 1618 	push	acc
+      00043B 74 06            [12] 1619 	mov	a,#(___str_2 >> 8)
+      00043D C0 E0            [24] 1620 	push	acc
+      00043F 12 05 21         [24] 1621 	lcall	_printf_tiny
+      000442 15 81            [12] 1622 	dec	sp
+      000444 15 81            [12] 1623 	dec	sp
+                           0003E4  1624 	C$func.c$152$2_0$99 ==.
+                                   1625 ;	func.c:152: goto L2;
+      000446 02 02 B8         [24] 1626 	ljmp	00101$
+      000449                       1627 00122$:
+                           0003E7  1628 	C$func.c$154$1_0$91 ==.
+                                   1629 ;	func.c:154: }
+                           0003E7  1630 	C$func.c$154$1_0$91 ==.
+                           0003E7  1631 	XG$get_number2$0$0 ==.
+      000449 22               [24] 1632 	ret
+                                   1633 	.area CSEG    (CODE)
+                                   1634 	.area CONST   (CODE)
+                           000000  1635 Ffunc$__str_0$0_0$0 == .
+                                   1636 	.area CONST   (CODE)
+      00064A                       1637 ___str_0:
+      00064A 69 6E 76 61 6C 69 64  1638 	.ascii "invalid character"
+             20 63 68 61 72 61 63
+             74 65 72
+      00065B 0A                    1639 	.db 0x0a
+      00065C 0D                    1640 	.db 0x0d
+      00065D 00                    1641 	.db 0x00
+                                   1642 	.area CSEG    (CODE)
+                           0003E8  1643 Ffunc$__str_1$0_0$0 == .
+                                   1644 	.area CONST   (CODE)
+      00065E                       1645 ___str_1:
+      00065E 0A                    1646 	.db 0x0a
+      00065F 0D                    1647 	.db 0x0d
+      000660 6E 75 6D 62 65 72 20  1648 	.ascii "number entered is %x "
+             65 6E 74 65 72 65 64
+             20 69 73 20 25 78 20
+      000675 0D                    1649 	.db 0x0d
+      000676 0A                    1650 	.db 0x0a
+      000677 00                    1651 	.db 0x00
+                                   1652 	.area CSEG    (CODE)
+                           0003E8  1653 Ffunc$__str_2$0_0$0 == .
+                                   1654 	.area CONST   (CODE)
+      000678                       1655 ___str_2:
+      000678 0A                    1656 	.db 0x0a
+      000679 0D                    1657 	.db 0x0d
+      00067A 69 6E 76 61 6C 69 64  1658 	.ascii "invalid Address. Enter a valid  Address"
+             20 41 64 64 72 65 73
+             73 2E 20 45 6E 74 65
+             72 20 61 20 76 61 6C
+             69 64 20 20 41 64 64
+             72 65 73 73
+      0006A1 0D                    1659 	.db 0x0d
+      0006A2 0A                    1660 	.db 0x0a
+      0006A3 00                    1661 	.db 0x00
+                                   1662 	.area CSEG    (CODE)
+                           0003E8  1663 Ffunc$__str_3$0_0$0 == .
+                                   1664 	.area CONST   (CODE)
+      0006A4                       1665 ___str_3:
+      0006A4 0A                    1666 	.db 0x0a
+      0006A5 0D                    1667 	.db 0x0d
+      0006A6 65 6E 74 65 72 20 6E  1668 	.ascii "enter number between 0 and FF"
+             75 6D 62 65 72 20 62
+             65 74 77 65 65 6E 20
+             30 20 61 6E 64 20 46
+             46
+      0006C3 0D                    1669 	.db 0x0d
+      0006C4 0A                    1670 	.db 0x0a
+      0006C5 00                    1671 	.db 0x00
+                                   1672 	.area CSEG    (CODE)
+                           0003E8  1673 Ffunc$__str_4$0_0$0 == .
+                                   1674 	.area CONST   (CODE)
+      0006C6                       1675 ___str_4:
+      0006C6 0A                    1676 	.db 0x0a
+      0006C7 0D                    1677 	.db 0x0d
+      0006C8 6E 75 6D 62 65 72 20  1678 	.ascii "number entered is %d "
+             65 6E 74 65 72 65 64
+             20 69 73 20 25 64 20
+      0006DD 0D                    1679 	.db 0x0d
+      0006DE 0A                    1680 	.db 0x0a
+      0006DF 00                    1681 	.db 0x00
+                                   1682 	.area CSEG    (CODE)
+                                   1683 	.area XINIT   (CODE)
+                                   1684 	.area CABS    (ABS,CODE)

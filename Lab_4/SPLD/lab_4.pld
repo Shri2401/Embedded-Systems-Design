@@ -1,0 +1,52 @@
+Name            LAB4;
+Partno          CA0001;
+Revision        04;
+Date            9/12/89;
+Designer        SHRINITHI;
+Company         Logical Devices, Inc.;
+Location        None;
+Assembly        None;
+Device          g16v8a;
+
+/****************************************************************/
+/*                                                              */
+/*      This is a example to demonstrate how CUPL               */
+/*      compiles simple gates.                                  */
+/*                                                              */
+/****************************************************************/
+
+/*
+ * Inputs:  define inputs to build simple gates from
+ */
+
+Pin 1 =  A15; /*Pin1 is connected to A15*/
+Pin 2 =  A14; /*Pin2 is connected to A14*/
+Pin 3 =  A13; /*Pin3 is connected to A13*/
+Pin 4 =  A12; /*Pin4 is connected to A12*/
+Pin 5 =  RD; /*Pin5 is connected to RD*/
+Pin 6 =  PSEN; /*Pin 6 is connected to PSEN*/
+Pin 7 = WR; /*Pin 7 is connected to WR*/
+
+
+/*
+ * Outputs:  define outputs as active HI levels
+ *
+ */
+
+Pin 12 = READ; /*Pin 12 is connected to READ*/
+Pin 13 = CSPERIPH; /*Pin 13 is connected to CSPERIPH*/
+Pin 15 = WE; /*Pin 15 is connected to WE*/
+Pin 17 = CE; /*Pin 17 is connected to CE*/
+Pin 19 = OE; /*Pin 19 is connected to OE*/
+Pin 14 = E; /*Pin 14 is connected to E*/
+
+
+/*
+ * Logic:  examples of simple gates expressed in CUPL
+ */
+
+OE = RD & PSEN; /*Output enable is an output of read and psen*/
+CE = A15; /*Chip enable is connected to A15*/
+WE = WR; /*Write enable is mapped to Write pin*/
+E = (A15 & (!WR # !RD)); /*Enable the LCD only when the I2C write operation happens*/
+

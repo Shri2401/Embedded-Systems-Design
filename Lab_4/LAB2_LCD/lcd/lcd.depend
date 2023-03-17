@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1668684604 source:d:\codeblocks\lcd\lcd.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+	<string.h>
+	"func.h"
+	"lcd.h"
+
+1669010166 d:\codeblocks\lcd\func.h
+
+1668553577 d:\codeblocks\lcd\lcd.h
+
+1669012049 source:d:\codeblocks\lcd\func.c
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<mcs51/8051.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+	"func.h"
+
+1668552595 source:d:\codeblocks\lcd\main.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdio.h>
+	<string.h>
+	"func.h"
+	"lcd.h"
+
